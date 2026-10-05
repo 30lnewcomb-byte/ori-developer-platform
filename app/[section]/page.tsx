@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import { notFound } from "next/navigation";
 
 const pages: Record<string, { title: string; subtitle: string; body: string }> = {
@@ -53,10 +55,24 @@ export default async function SectionPage({
   const page = pages[section];
   if (!page) notFound();
 
+  const user = await currentUser();
+  const identity =
+    user?.firstName ||
+    user?.primaryEmailAddress?.emailAddress ||
+    "Developer";
+
   return (
     <main className="sectionPage">
       <div className="sectionShell">
-        <Link className="back" href="/">← Ori Developer Platform</Link>
+        <header className="sectionHeader">
+          <div>
+            <Link className="back" href="/dashboard">← Ori Developer Platform</Link>
+          </div>
+          <div className="userMenu" aria-label="Signed-in developer account">
+            <span className="userMenuLabel">{identity}</span>
+            <UserButton afterSignOutUrl="/" />
+          </div>
+        </header>
         <div className="sectionKicker">DEVELOPER CONTROL PLANE</div>
         <h1>{page.title}</h1>
         <p className="sectionSubtitle">{page.subtitle}</p>
