@@ -152,7 +152,7 @@ export default async function SectionPage({
           <div className="consoleBreadcrumb">Workspace <span>/</span> {page.title}</div>
           <div className="consoleIdentity">
             <span>{identity}</span>
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
           </div>
         </header>
 
