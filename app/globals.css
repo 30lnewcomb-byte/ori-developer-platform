@@ -581,6 +581,31 @@ select:focus-visible {
   font-size: 9px;
 }
 
+
+.landingGithubLink {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #344455;
+  border-radius: 9px;
+  color: #dce6f1;
+  transition: color .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+.landingGithubLink:hover {
+  border-color: #607d9c;
+  background: #172433;
+  color: #ffffff;
+}
+
+.landingGithubLink:focus-visible {
+  outline: 2px solid #8db9ed;
+  outline-offset: 3px;
+}
+
 .landingFooterBrand {
   color: #9db1c8;
   font-size: 9px;
