@@ -12,7 +12,7 @@ This document describes the initial shared visual system implemented in `app/glo
 - **Text:** high-contrast near-white for primary content; muted blue-gray for supporting content.
 - **Accent:** a single restrained blue family for primary actions, active navigation, links, and focus.
 - **Status:** subdued semantic colors; never rely on color alone.
-- **Typography:** system UI sans stack; monospace only for identifiers and code-like values.
+- **Typography:** local Ori Text for interface/body copy, Ori Display for headings, and Ori Mono for code and technical identifiers. Load the committed WOFF2 files locally with `font-display: swap`; do not silently substitute a third-party font.
 - **Shape:** consistent 8px, 12px, and 18px radii for controls, panels, and larger surfaces.
 - **Depth:** use borders and surface changes first; shadows are reserved for major overlays.
 
@@ -59,7 +59,7 @@ This is the acceptance target; it is not a claim that the current screens have p
 
 ## Visual review checklist
 
-Before release, inspect the actual preview in desktop and mobile browsers:
+Before release, inspect a local production build or production candidate in desktop and mobile browsers. Do not create a Vercel preview deployment for visual QA:
 - [ ] Heading hierarchy and page spacing
 - [ ] Navigation current state and keyboard focus
 - [ ] Form labels, errors, disabled states, and empty states
