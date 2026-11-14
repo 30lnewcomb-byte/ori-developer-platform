@@ -68,16 +68,22 @@ Acceptance criteria:
 
 Work:
 - Define supported API endpoints and permission scopes before exposing key creation.
-- Create a server-side credential service with key prefixes, cryptographically secure generation, one-time secret display, hashing, rotation, revocation, and last-used metadata.
-- Separate human-owned development keys from service-account credentials for applications and automation.
-- Scope keys to a project and, where necessary, an environment or specific capabilities.
-- Add a safe audit trail for key creation, rotation, revocation, and permission changes.
+- Create a server-side credential service with key prefixes, cryptographically secure generation, one-time secret display, secure verification storage, rotation, revocation, expiration, and last-used metadata.
+- Separate a developer's personal key from non-human service-account identities used by applications, scheduled jobs, or CI.
+- Scope keys to a project and, where necessary, an environment or specific capabilities. A key's scope must never grant permissions its owner does not have.
+- Keep organization-administration credentials separate from project workload credentials. Administrative credentials must never be used by a customer application or exposed to the browser.
+- Support planned rotation: issue a replacement, update the workload, verify successful requests, then revoke the old key.
+- Add a safe audit trail for key creation, rotation, expiration, revocation, and permission changes.
 
 Acceptance criteria:
 - Raw secrets are never stored or returned again after initial creation.
 - Every request is authenticated and authorized against the key's active status and scope.
 - A revoked or rotated key stops working.
 - Logs and UI never reveal complete secrets.
+- Key creation, expiration, rotation, and revocation events are attributable to an authenticated actor.
+- Workload credentials can be rotated without changing the human who originally created them.
+
+Research basis: OpenAI distinguishes user-owned project keys, project service accounts, and organization Admin keys; Anthropic distinguishes personal, service-account, and workspace keys. Both reveal secret values only at creation and describe key lifecycle controls. Ori should follow those identity boundaries rather than treating every key as interchangeable.
 
 ## Priority 3 — Model development experience
 
@@ -89,12 +95,15 @@ Work:
 - Add a playground that sends the same request shape as the documented API.
 - Persist experiments, prompt/config versions, model snapshots, and test results.
 - Support side-by-side comparisons with latency, token usage, errors, and cost only when those values are returned by a trustworthy source.
-- Add evaluation datasets and regression checks before changing production model routing.
+- Add versioned evaluation datasets, regression checks, and trace-level inspection before changing production model routing.
+- Keep evaluation definitions and result records portable in Ori's own schema; use provider evaluation APIs as adapters rather than making one provider's legacy product the system of record.
 - Keep model fine-tuning and training workflows separate from ordinary UI deployment and require explicit compute approval.
 
 Research lesson:
 - Anthropic's current Playground emphasizes request fidelity and code export, but does not save prompt history or run evaluations.
-- OpenAI's prompt documentation recommends keeping production prompts in application code, versioning them, and testing changes. Ori should combine request fidelity with durable experiments and evaluation evidence rather than copying a stateless playground.
+- OpenAI's prompt and evaluation guidance emphasizes versioned prompts, task-specific datasets, graders, trace inspection, and continuous evaluation.
+- OpenAI's older Evals platform is scheduled to become read-only on October 31, 2026 and shut down on November 30, 2026. Current documentation points developers toward Datasets and agent trace/evaluation workflows. Ori must not base its core product on a provider surface that is about to be retired.
+- Ori should combine request fidelity, durable experiments, portable evaluation datasets, trace-linked results, and a safe review step before promotion.
 
 Acceptance criteria:
 - Model names, versions, capabilities, and health are sourced from a real service.
@@ -128,11 +137,14 @@ Work:
 - Exclude credentials, raw sensitive prompts, and unnecessary personal data from logs.
 - Add searchable request history and audit events with role-appropriate visibility.
 - Add usage/cost rollups only when the runtime or provider supplies reliable measurements.
+- Show source, aggregation window, and last-updated timestamp beside all cost and usage summaries.
+- Separate near-real-time request telemetry from delayed provider billing analytics; never present delayed reports as live totals.
 - Surface service health with clear freshness timestamps and outage states.
 
 Acceptance criteria:
-- Every metric has a documented source, unit, time range, and aggregation.
-- Missing telemetry is shown as unavailable, not zero.
+- Every metric has a documented source, unit, time range, aggregation, and freshness expectation.
+- Missing or stale telemetry is shown as unavailable or delayed, not zero or live.
+- Provider-reported cost is distinguished from Ori-estimated cost.
 - Sensitive data is redacted by design.
 - An individual request can be traced using a request ID.
 

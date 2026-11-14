@@ -13,6 +13,7 @@ This document distinguishes what is implemented today from the architecture the 
 - **Authentication:** Clerk using `@clerk/nextjs`.
 - **Database:** Neon Postgres using `@neondatabase/serverless`.
 - **Secrets/configuration:** Vercel environment variables; Doppler-related variables are present, but the active sync mapping remains unverified.
+- **Credential architecture:** No Ori-managed API key issuance service is implemented yet. The identity and lifecycle model below is a target, not a live capability.
 - **Source branch:** `main`.
 
 The Developer Platform is intentionally a separate application. It must not import private implementation details from Ori Platform or Ori Intelligence. Future communication with those systems should use versioned, authenticated APIs.
@@ -118,7 +119,21 @@ Introduce each concept only with an owner, migration, authorization policy, and 
 
 Before multi-user collaboration is implemented, add a membership model and central authorization helper. Do not scatter ad hoc role checks across page components.
 
-## 7. Provider and runtime boundaries
+## 7. Target API credential model
+
+API key issuance is not implemented in the current application. Before implementing it, preserve distinct identities and credential classes:
+
+- Personal development credentials belong to an authenticated human.
+- Service identities and their credentials belong to applications or automation workloads, not to the person who clicked Create.
+- Administrative credentials are high-privilege server-side credentials for platform management and must not be used by application workloads.
+
+Each credential should have a public identifier/prefix and store only the minimum material required for later verification. Full secret values should be displayed only at creation. The credential record should retain owner/service identity, project, environment, scopes, expiry, status, last-used timestamp, and rotation/revocation metadata. Do not return the full secret from later list or detail endpoints.
+
+Rotation must be staged: create replacement, update the consuming workload, verify requests, then revoke the previous key. The key scope cannot grant permissions beyond the owner's or service identity's effective permissions.
+
+These are design requirements, not current implemented features. See `PRODUCT_ROADMAP.md` Priority 2.
+
+## 8. Provider and runtime boundaries
 
 The Developer Platform should communicate with Ori Intelligence, model services, and tool executors through explicit interfaces, for example:
 
@@ -132,7 +147,7 @@ These interfaces are target architecture only. The current dashboard pages descr
 
 Keep provider-specific credentials and SDKs inside server-side adapters. The browser should call the Developer Platform's authenticated API, not receive provider secrets.
 
-## 8. Deployment and change management
+## 9. Deployment and change management
 
 1. Develop in a feature branch.
 2. Run format/type/build checks and targeted tests.
@@ -144,7 +159,7 @@ Keep provider-specific credentials and SDKs inside server-side adapters. The bro
 
 Database migrations remain a separate deliberate operation. Do not automatically execute production DDL during a normal Vercel deployment.
 
-## 9. Known gaps at this review
+## 10. Known gaps at this review
 
 - Production Clerk instance/domain has not been configured.
 - The Projects migration's application state has not been verified.

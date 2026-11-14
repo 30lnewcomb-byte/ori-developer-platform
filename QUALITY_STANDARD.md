@@ -78,7 +78,10 @@ Accessibility requirements are based on the [W3C Web Content Accessibility Guide
 - Apply ownership/tenant filters to every read, update, and delete query.
 - Use least-privilege permissions for humans, service accounts, API keys, and integrations.
 - Keep secret credentials server-side. Never place private keys in `NEXT_PUBLIC_*` variables, browser bundles, client logs, analytics, or error messages.
-- API secrets must be shown only at creation, stored using an appropriate one-way hash when verification is all that is needed, and support rotation and revocation.
+- API credentials must have an explicit identity type (personal, service, or administrative), project/environment scope, permissions, and expiry.
+- Full API secrets must be shown only at creation and never returned by later list/detail calls. Store only the minimum verification material needed for the intended credential flow.
+- Support replacement-first rotation: issue a replacement, update the consumer, verify it, then revoke the old credential.
+- Administrative credentials must remain isolated from application/workload credentials and server-side only.
 - Log security-relevant events without logging credentials or sensitive payloads.
 - Keep development, preview, and production credentials and data separated.
 - Use production authentication keys and the provider's production deployment requirements before treating a public deployment as production-ready.
