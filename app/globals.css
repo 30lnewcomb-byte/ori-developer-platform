@@ -1396,3 +1396,210 @@ select:focus-visible {
 .publicDocsLink:hover strong{color:#b9d4f4}
 .publicDocsFooter{max-width:1050px;border-top:1px solid #252a31;margin-top:64px;padding-top:22px;display:flex;justify-content:space-between;gap:18px;color:#8f9aa8;font-size:12px}
 @media(max-width:720px){.publicDocsContent{grid-template-columns:1fr;gap:30px}.publicDocsHero{padding:58px 0 38px}.publicDocsFooter{flex-direction:column}.publicDocsHeader{height:68px}}
+
+
+/* Workspace navigation: grouped, collapsible, and mobile accessible */
+.workspaceShell {
+  display: grid;
+  min-height: 100svh;
+  grid-template-columns: 252px minmax(0, 1fr);
+  background: var(--page);
+  transition: grid-template-columns .18s ease;
+}
+.workspaceShell.isCollapsed { grid-template-columns: 76px minmax(0, 1fr); }
+.workspaceSidebar {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: flex;
+  width: 100%;
+  height: 100svh;
+  min-height: 0;
+  flex-direction: column;
+  padding: 17px 12px 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid #263341;
+  background: #101720;
+}
+.workspaceSidebarHeader {
+  display: flex;
+  min-height: 47px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  padding: 0 3px 13px 5px;
+  border-bottom: 1px solid #263341;
+}
+.workspaceBrand {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  color: #edf3fa;
+}
+.workspaceBrandMark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  place-items: center;
+  border: 1px solid #45688e;
+  border-radius: 9px;
+  background: #1b3047;
+  color: #c6e0ff;
+  font-family: var(--font-display);
+  font-size: 18px;
+}
+.workspaceBrandCopy {
+  min-width: 0;
+  color: #edf3fa;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .13em;
+  white-space: nowrap;
+}
+.workspaceBrandCopy small {
+  display: block;
+  margin-top: 3px;
+  color: #7e90a5;
+  font-size: 7px;
+  letter-spacing: .13em;
+}
+.workspaceCollapseButton {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: #9aabbd;
+  cursor: pointer;
+  font-size: 20px;
+}
+.workspaceCollapseButton:hover { border-color: var(--line); background: #192431; color: #fff; }
+.workspaceNavigation { display: grid; gap: 23px; padding-top: 22px; }
+.workspaceNavGroup { display: grid; gap: 8px; }
+.workspaceNavGroupLabel {
+  padding: 0 10px;
+  color: #74869a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  white-space: nowrap;
+}
+.workspaceNavItems { display: grid; gap: 3px; }
+.workspaceNavItem {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #a7b4c3;
+  font-size: 12px;
+  font-weight: 560;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.workspaceNavItem:hover { background: #182432; color: #eaf1fa; }
+.workspaceNavItem.active { border-color: #304b68; background: #1a2b3d; color: #dcecff; }
+.workspaceNavIcon {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  place-items: center;
+  color: #8fa3ba;
+  font-size: 16px;
+}
+.workspaceNavItem.active .workspaceNavIcon { color: #9ec7fa; }
+.workspaceNavText { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.workspaceSidebarBottom {
+  display: grid;
+  gap: 5px;
+  margin-top: auto;
+  padding: 15px 10px 2px;
+  border-top: 1px solid #263341;
+}
+.workspaceEnvironment { color: #8fa7c1; font-size: 9px; font-weight: 750; letter-spacing: .1em; white-space: nowrap; }
+.workspaceSidebarCaption { color: #6f8093; font-size: 10px; white-space: nowrap; }
+.workspaceMain { min-width: 0; }
+.workspaceTopbar {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0 clamp(18px, 3.5vw, 42px);
+  border-bottom: 1px solid #263341;
+  background: rgba(13, 17, 23, .94);
+  backdrop-filter: blur(14px);
+}
+.workspaceTopbarLeft { display: flex; min-width: 0; align-items: center; gap: 14px; }
+.workspaceBreadcrumb { color: #8291a4; font-size: 11px; }
+.workspaceBreadcrumb span { padding: 0 8px; color: #536275; }
+.workspaceIdentity { display: flex; align-items: center; gap: 12px; color: #b3c0ce; font-size: 11px; }
+.workspaceMobileMenu { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 8px; background: #131d28; color: #dbe6f2; cursor: pointer; font-size: 17px; }
+.workspaceScrim { display: none; }
+.workspaceShell .consoleContent { padding-top: 42px; }
+.workspaceShell.isCollapsed .workspaceSidebar { padding-right: 9px; padding-left: 9px; }
+.workspaceShell.isCollapsed .workspaceSidebarHeader { justify-content: center; padding-right: 0; padding-left: 0; }
+.workspaceShell.isCollapsed .workspaceBrandCopy,
+.workspaceShell.isCollapsed .workspaceNavGroupLabel,
+.workspaceShell.isCollapsed .workspaceNavText,
+.workspaceShell.isCollapsed .workspaceSidebarBottom { display: none; }
+.workspaceShell.isCollapsed .workspaceCollapseButton { position: absolute; top: 58px; right: 22px; z-index: 2; background: #101720; }
+.workspaceShell.isCollapsed .workspaceNavigation { padding-top: 34px; }
+.workspaceShell.isCollapsed .workspaceNavItem { justify-content: center; padding-right: 0; padding-left: 0; }
+.workspaceShell.isCollapsed .workspaceNavIcon { width: 28px; height: 28px; font-size: 17px; }
+.workspaceShell.isCollapsed .workspaceNavGroup { gap: 4px; }
+.workspaceShell.isCollapsed .workspaceNavItems { gap: 5px; }
+
+@media (max-width: 820px) {
+  .workspaceShell, .workspaceShell.isCollapsed { display: block; }
+  .workspaceSidebar {
+    position: fixed;
+    z-index: 42;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(290px, calc(100vw - 54px));
+    height: 100dvh;
+    transform: translateX(-105%);
+    transition: transform .2s ease;
+    box-shadow: 18px 0 50px rgba(0,0,0,.3);
+  }
+  .workspaceSidebar.mobileOpen { transform: translateX(0); }
+  .workspaceSidebarHeader { justify-content: space-between !important; padding: 0 3px 13px 5px !important; }
+  .workspaceBrandCopy,
+  .workspaceNavGroupLabel,
+  .workspaceNavText,
+  .workspaceSidebarBottom { display: initial !important; }
+  .workspaceNavGroupLabel { display: block !important; }
+  .workspaceNavText { display: inline !important; }
+  .workspaceNavItem { justify-content: flex-start !important; padding: 0 10px !important; }
+  .workspaceCollapseButton { display: none; }
+  .workspaceNavigation { padding-top: 22px !important; }
+  .workspaceTopbar { height: 60px; padding: 0 16px; }
+  .workspaceMobileMenu { display: inline-flex; }
+  .workspaceIdentity > span { display: none; }
+  .workspaceScrim {
+    position: fixed;
+    z-index: 41;
+    inset: 0;
+    display: block;
+    border: 0;
+    background: rgba(0,0,0,.58);
+    cursor: pointer;
+  }
+  .workspaceShell .consoleContent { padding: 30px 18px 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .workspaceShell, .workspaceSidebar, .workspaceNavItem { transition: none; }
+}
