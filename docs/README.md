@@ -9,7 +9,9 @@ This guide describes the platform as it exists today. It separates implemented b
 - [Quickstart](QUICKSTART.md) — run the web application locally and open your workspace.
 - [Platform concepts](CONCEPTS.md) — understand projects, ownership, and future resource boundaries.
 - [Authentication and security](AUTHENTICATION.md) — sign-in behavior and server-side authorization.
-- [API reference](API_REFERENCE.md) — the currently implemented HTTP API.
+- [Security model](SECURITY.md) — trust boundaries, secrets, isolation, and requirements for future API credentials.
+- [API reference](API_REFERENCE.md) — the currently implemented HTTP API contract.
+- [API guide](API_GUIDE.md) — practical examples for listing and creating projects from the signed-in application.
 - [Projects](PROJECTS.md) — create and list project records.
 - [Database and migrations](DATABASE.md) — understand the Projects schema and apply its migration safely.
 - [Environment configuration](ENVIRONMENT.md) — configure local and hosted environments.
