@@ -11,6 +11,7 @@ const guides = [
   { title: "Workspace guide", description: "Understand public routes, sign-in, workspace navigation, and what each section actually does.", file: "WORKSPACE.md", group: "Get started" },
   { title: "Platform concepts", description: "Projects, ownership, environments, and the boundaries between resources.", file: "CONCEPTS.md", group: "Get started" },
   { title: "Ori Platform", description: "The user-facing Ori product, its architecture, current experience, and repository boundaries.", file: "ORI_PLATFORM.md", group: "Ori Platform" },
+  { title: "Ori VM integration", description: "The server-side VM adapter, health route, execution limits, and operational boundaries.", file: "ORI_VM.md", group: "Ori Platform" },
   { title: "Ori Intelligence", description: "TensorFlow model runtime, server-side integration, API contract, and readiness.", file: "ORI_INTELLIGENCE.md", group: "Ori Platform" },
   { title: "API reference", description: "The HTTP endpoints currently implemented by Ori Developer Platform.", file: "API_REFERENCE.md", group: "API" },
   { title: "API guide", description: "Practical request examples, validation rules, and response handling.", file: "API_GUIDE.md", group: "API" },
