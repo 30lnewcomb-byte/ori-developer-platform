@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 
 const guides = [
   { title: "Quickstart", description: "Set up the repository locally and understand the first-run requirements.", file: "QUICKSTART.md", group: "Get started" },
+  { title: "Workspace guide", description: "Understand public routes, sign-in, workspace navigation, and what each section actually does.", file: "WORKSPACE.md", group: "Get started" },
   { title: "Platform concepts", description: "Projects, ownership, environments, and the boundaries between resources.", file: "CONCEPTS.md", group: "Get started" },
   { title: "Ori Platform", description: "The user-facing Ori product, its architecture, current experience, and repository boundaries.", file: "ORI_PLATFORM.md", group: "Ori Platform" },
   { title: "Ori Intelligence", description: "TensorFlow model runtime, server-side integration, API contract, and readiness.", file: "ORI_INTELLIGENCE.md", group: "Ori Platform" },

@@ -1,6 +1,6 @@
 # Environment configuration
 
-This page describes the environment variables read by the current application and the separation expected between local, preview, and production environments.
+This page describes the environment variables read by the current application and the separation expected between local development and production.
 
 ## Application variables
 
@@ -29,9 +29,10 @@ Replace every placeholder with the correct value. Do not include real values in 
 
 Keep separate values and data for:
 
-- Development/local.
-- Preview, if preview deployments are used for a reviewed workflow.
-- Production.
+- Local development, using test credentials and non-production data.
+- Production, using production credentials and production data.
+
+This repository's owner-directed release workflow deploys directly from `main` to Production. Do not create preview deployments for this project.
 
 A change to Vercel environment variables applies to new deployments; it does not rewrite the environment of an already-created deployment. Redeploy after changing configuration, then verify the new deployment.
 
