@@ -3,12 +3,15 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Documentation | Ori Developer Platform",
-  description: "Public documentation for building, integrating, and operating with Ori Developer Platform.",
+  description: "Public documentation for Ori Platform, Ori Intelligence, Ori World, and Ori Developer Platform.",
 };
 
 const guides = [
   { title: "Quickstart", description: "Set up the repository locally and understand the first-run requirements.", file: "QUICKSTART.md", group: "Get started" },
   { title: "Platform concepts", description: "Projects, ownership, environments, and the boundaries between resources.", file: "CONCEPTS.md", group: "Get started" },
+  { title: "Ori Platform", description: "The user-facing Ori product, its architecture, current experience, and repository boundaries.", file: "ORI_PLATFORM.md", group: "Ori Platform" },
+  { title: "Ori Intelligence", description: "TensorFlow model runtime, server-side integration, API contract, and readiness.", file: "ORI_INTELLIGENCE.md", group: "Ori Platform" },
+  { title: "Ori World", description: "The controlled execution environment, VM integration, and safety boundaries.", file: "ORI_WORLD.md", group: "Ori Platform" },
   { title: "API reference", description: "The HTTP endpoints currently implemented by Ori Developer Platform.", file: "API_REFERENCE.md", group: "API" },
   { title: "API guide", description: "Practical request examples, validation rules, and response handling.", file: "API_GUIDE.md", group: "API" },
   { title: "Authentication", description: "Clerk sessions, server-side authorization, and current API authentication behavior.", file: "AUTHENTICATION.md", group: "Security" },
@@ -25,7 +28,7 @@ const guides = [
   { title: "Contributing", description: "Repository conventions, code review expectations, and documentation rules.", file: "CONTRIBUTING.md", group: "Reference" },
 ];
 
-const groups = ["Get started", "API", "Security", "Platform guides", "Operations", "Reference"];
+const groups = ["Get started", "Ori Platform", "API", "Security", "Platform guides", "Operations", "Reference"];
 
 export default function PublicDocumentationPage() {
   return (
@@ -44,7 +47,7 @@ export default function PublicDocumentationPage() {
       <section className="publicDocsHero">
         <span className="landingSectionKicker">ORI DEVELOPER PLATFORM</span>
         <h1>Documentation.</h1>
-        <p>Everything you need to understand, integrate with, and operate Ori Developer Platform. The docs are public—no account or sign-in required.</p>
+        <p>Documentation for the Ori ecosystem: Ori Platform, Ori Intelligence, Ori World, and Ori Developer Platform. Public access—no account or sign-in required.</p>
         <div className="publicDocsMeta">
           <span>Public access</span><span>·</span><span>Current implementation, clearly labeled</span>
         </div>
