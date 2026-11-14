@@ -139,7 +139,7 @@ A feature is done only when all applicable checks pass:
 - [ ] Secrets and personal data are handled safely.
 - [ ] Automated checks pass, including targeted regression tests.
 - [ ] Documentation and migrations match the implementation.
-- [ ] Preview behavior is checked and the intended production deployment is verified.
+- [ ] The approved direct-to-main workflow is followed; the exact Production deployment reaches Ready and the primary domain is verified. Do not create preview deployments for this repository.
 - [ ] Known limitations are listed honestly.
 
 A feature that fails an applicable check remains in progress. Do not relabel it as finished to make the roadmap look better.

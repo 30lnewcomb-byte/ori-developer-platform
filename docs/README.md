@@ -19,6 +19,9 @@ This guide describes the platform as it exists today. It separates implemented b
 - [Errors and responses](ERRORS.md) — understand API status codes and recovery steps.
 - [Models and tools](MODELS_AND_TOOLS.md) — current integration status and intended connection model.
 - [Troubleshooting](TROUBLESHOOTING.md) — resolve common setup problems.
+- [Integration contract](INTEGRATIONS.md) — rules for connecting Ori Developer to Ori Platform, Ori Intelligence, and other services.
+- [Contributing and maintenance](CONTRIBUTING.md) — repository workflow, code conventions, and documentation rules.
+- [Release checklist](RELEASE_CHECKLIST.md) — repeatable production-only verification before and after a change.
 
 ## Documentation conventions
 

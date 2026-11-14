@@ -82,10 +82,10 @@ The Vercel project metadata also reported `live: false` while its latest product
 
 Maintain separate credentials and data boundaries for:
 - **Development:** local development and safe test data.
-- **Preview:** branch deployments and test data.
+- **Preview:** not part of the current owner-directed deployment workflow. Do not create preview deployments for this repository.
 - **Production:** real users and production data.
 
-Environment-variable changes apply to new deployments; existing deployments do not automatically receive changed values. After changing environment configuration, create and verify a new deployment.
+Environment-variable changes apply to new deployments; existing deployments do not automatically receive changed values. After changing environment configuration, trigger a new **Production** deployment from `main` and verify it.
 
 Clerk production uses production keys and requires a domain owned by the application owner. The currently inspected production page uses a Clerk development key and development Frontend API domain. This is a release blocker for real production authentication, not a reason to copy development credentials into production.
 
@@ -149,13 +149,18 @@ Keep provider-specific credentials and SDKs inside server-side adapters. The bro
 
 ## 9. Deployment and change management
 
-1. Develop in a feature branch.
-2. Run format/type/build checks and targeted tests.
-3. Review the diff and confirm no secret or unrelated repository changes.
-4. Deploy a preview and inspect key pages and API behavior.
-5. Merge the reviewed change to `main` through the repository's chosen review process.
-6. Verify the production deployment, domain, authentication, and critical user journey.
-7. Record any incomplete migration or provider setup as a visible release limitation.
+The repository's owner-directed workflow is **direct-to-main and production-only**. Do not create preview deployments, preview branches, or pull-request preview deployments for this project.
+
+1. Inspect the current `main` head before preparing a change.
+2. Make a focused change and review the complete diff.
+3. Run the checks that actually exist: at this baseline, `npm run build` is available, but no test or lint script is defined.
+4. Check documentation, security boundaries, secrets, and migration impact.
+5. Commit the approved change directly to `main`, using a non-force update.
+6. Verify that Vercel created a **Production** deployment for the exact commit.
+7. Wait for deployment state **Ready**, then verify the primary production domain and the affected user journey.
+8. Report any failed check, missing provider setup, or unverified behavior honestly.
+
+Do not call a commit live when it is merely pushed, initializing, building, or failed. Do not use a preview URL as a substitute for production verification.
 
 Database migrations remain a separate deliberate operation. Do not automatically execute production DDL during a normal Vercel deployment.
 
@@ -167,6 +172,6 @@ Database migrations remain a separate deliberate operation. Do not automatically
 - Vercel Marketplace integration inventory and billing plans could not be read through the available integration-inventory API permission.
 - API key issuance, model catalog, runtime health, tools, audit events, and usage analytics are not yet connected.
 - The repository has no test script or checked-in test suite at this baseline.
-- The resource-level Clerk auth change is in the research branch and must pass the preview redirect/API checks before merge.
+- Recheck the production Clerk configuration and Projects migration before treating the workspace as production-ready. No preview-based validation is authorized in the current workflow.
 
 These gaps feed the priorities in `PRODUCT_ROADMAP.md`.
