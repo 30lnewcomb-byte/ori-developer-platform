@@ -10,6 +10,10 @@ and Neon Postgres.
 - Persistent Projects registry with per-user ownership
 - Explicit database migration; deployments never mutate the database schema
 
+## Developer documentation
+
+Start at [docs/README.md](docs/README.md) for the developer documentation index, quickstart, authentication guide, API reference, project guide, environment setup, errors, and troubleshooting.
+
 ## Projects setup
 
 See [docs/PROJECTS.md](docs/PROJECTS.md) and apply
