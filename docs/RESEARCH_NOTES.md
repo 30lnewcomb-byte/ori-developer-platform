@@ -72,7 +72,16 @@ Sources:
 - [Migrate away from Middleware-based auth checks](https://clerk.com/docs/guides/development/upgrading/upgrade-guides/migrate-from-create-route-matcher)
 - [auth() App Router reference](https://clerk.com/docs/reference/nextjs/app-router/auth)
 
-## 5. Implications for Ori
+## 5. W3C accessibility guidance
+
+W3C's WCAG 2.2 standard gives concrete criteria for readable and operable interfaces. Relevant AA criteria include text contrast, non-text contrast for user interface components, minimum target size, keyboard access, visible focus, and reflow at a narrow 320 CSS-pixel viewport.
+
+**Lesson for Ori:** Accessibility must be part of component and release acceptance, not an optional polish pass. The UI system should use measurable contrast and target-size checks, preserve keyboard access, and be tested at narrow widths.
+
+Source:
+- [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/)
+
+## 6. Implications for Ori
 
 | Design area | Research finding | Ori decision |
 |---|---|---|
@@ -84,14 +93,14 @@ Sources:
 | Operations | Both platforms expose usage and cost by useful scopes | Build analytics only from sourced events and provider-reported usage |
 | Integrations | Vercel product and account connections have different billing/ownership models | Verify exact integration and billing details before relying on them |
 
-## 6. Research limits and open questions
+## 7. Research limits and open questions
 
 - This pass studied official product documentation, not every screen or every plan restriction.
 - The current Vercel integration-inventory endpoint returned a permission error for the available account connection. Neon and Clerk environment-variable metadata is present in the Developer Platform project, but the full Marketplace installation list and exact billing plans still need direct dashboard or authorized CLI verification.
 - A variable name or provider metadata is not proof that a provider sync is healthy.
 - The UI should be reviewed directly at representative widths before choosing final layout details.
 
-## 7. Next research passes
+## 8. Next research passes
 
 1. Compare project creation and project detail workflows across the two consoles, including the exact information hierarchy and empty states.
 2. Compare API key creation, restricted scopes, service identities, rotation, and audit behavior.

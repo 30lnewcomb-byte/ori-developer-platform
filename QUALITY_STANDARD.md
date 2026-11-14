@@ -45,8 +45,9 @@ The product should feel like a mature developer tool: calm, precise, information
 
 ### Accessibility and responsive behavior
 
-- Target WCAG 2.2 AA for contrast and interaction accessibility.
-- All functionality must be usable with a keyboard; focus must be visible and follow a logical order.
+- Target WCAG 2.2 AA. Use measurable checks: 4.5:1 contrast for normal text, 3:1 for large text and required UI component boundaries, and a 24 by 24 CSS-pixel minimum pointer target unless a documented WCAG exception applies.
+- Support reflow at a 320 CSS-pixel viewport width without loss of content or functionality, except for content that inherently requires two-dimensional layout.
+- All functionality must be usable with a keyboard; focus must be visible, unobscured, and follow a logical order.
 - Use semantic HTML, programmatic labels, meaningful headings, and accessible status/error announcements.
 - Do not use color alone to communicate status.
 - Respect reduced-motion preferences.
@@ -67,6 +68,8 @@ Review the actual page at each supported viewport. Check visual hierarchy, spaci
 - Make retries safe where practical; avoid duplicate writes on repeated submissions.
 - Use explicit time zones and stable identifiers for dates and records.
 - Provide useful empty states that explain the next valid action.
+
+Accessibility requirements are based on the [W3C Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/). Treat AA as the release target, not as a claim that the current interface has already been audited.
 
 ## 4. Security and privacy standards
 

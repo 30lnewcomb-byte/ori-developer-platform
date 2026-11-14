@@ -45,6 +45,18 @@ Do not introduce page-specific colors when a token already represents the intend
 - Do not allow the page itself to overflow horizontally.
 - Keep focus outlines visible and respect `prefers-reduced-motion`.
 
+## Accessibility reference
+
+The accessibility target is WCAG 2.2 AA:
+- Normal text contrast should reach 4.5:1; large text and required UI component boundaries should reach 3:1.
+- Pointer targets should be at least 24 by 24 CSS pixels unless a WCAG exception is applicable.
+- Content should reflow at 320 CSS pixels without losing information or functionality.
+- Keyboard focus must remain visible and unobscured. Do not rely on color alone for state.
+
+Reference: [W3C Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/).
+
+This is the acceptance target; it is not a claim that the current screens have passed an accessibility audit.
+
 ## Visual review checklist
 
 Before release, inspect the actual preview in desktop and mobile browsers:
