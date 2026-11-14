@@ -1375,3 +1375,24 @@ select:focus-visible {
     transition-duration: .01ms !important;
   }
 }
+
+/* Public documentation landing page */
+.publicDocs{min-height:100vh;background:#0b0d10;color:#f4f5f6;padding:0 clamp(22px,6vw,96px) 48px}
+.publicDocsHeader{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #252a31}
+.publicDocsHeader nav{display:flex;gap:26px;align-items:center}
+.publicDocsHeader nav a,.publicDocsFooter a{color:#c6d5e8;text-decoration:none;font-size:13px}
+.publicDocsHeader nav a:hover,.publicDocsFooter a:hover{color:#fff}
+.publicDocsHero{max-width:850px;padding:82px 0 54px}
+.publicDocsHero h1{font-family:var(--font-display);font-size:clamp(42px,6vw,68px);letter-spacing:-.045em;margin:14px 0}
+.publicDocsHero p{max-width:680px;color:#aeb7c2;font-size:18px;line-height:1.7;margin:0}
+.publicDocsMeta{display:flex;gap:10px;margin-top:24px;color:#8f9aa8;font-size:12px}
+.publicDocsContent{max-width:1050px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 64px}
+.publicDocsGroup h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8995a4;margin:0 0 12px}
+.publicDocsList{border-top:1px solid #252a31}
+.publicDocsLink{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px 2px;border-bottom:1px solid #252a31;text-decoration:none;color:inherit}
+.publicDocsLink strong{display:block;font-size:15px;font-weight:600}
+.publicDocsLink small{display:block;color:#98a3b0;font-size:12px;line-height:1.55;margin-top:5px}
+.publicDocsArrow{color:#8eaed4;font-size:17px}
+.publicDocsLink:hover strong{color:#b9d4f4}
+.publicDocsFooter{max-width:1050px;border-top:1px solid #252a31;margin-top:64px;padding-top:22px;display:flex;justify-content:space-between;gap:18px;color:#8f9aa8;font-size:12px}
+@media(max-width:720px){.publicDocsContent{grid-template-columns:1fr;gap:30px}.publicDocsHero{padding:58px 0 38px}.publicDocsFooter{flex-direction:column}.publicDocsHeader{height:68px}}

@@ -79,6 +79,7 @@ export default async function Home() {
           <a href="#platform">Platform</a>
           <a href="#workflow">Workflow</a>
           <a href="#principles">Principles</a>
+          <Link href="/docs">Documentation</Link>
         </nav>
 
         <div className="landingHeaderActions">
