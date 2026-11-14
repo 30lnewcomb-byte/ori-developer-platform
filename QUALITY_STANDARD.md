@@ -70,7 +70,7 @@ Review the actual page at each supported viewport. Check visual hierarchy, spaci
 
 ## 4. Security and privacy standards
 
-- Authenticate protected routes and authorize each operation server-side.
+- Initialize the authentication provider at the request boundary, then authenticate and authorize every protected page, route handler, and server action at the resource itself.
 - Derive the acting user and tenant scope from the verified server-side session. Never accept an owner ID or role from browser input as authority.
 - Apply ownership/tenant filters to every read, update, and delete query.
 - Use least-privilege permissions for humans, service accounts, API keys, and integrations.

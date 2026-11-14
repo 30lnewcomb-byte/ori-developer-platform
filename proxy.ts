@@ -1,21 +1,9 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
-const isProtectedRoute = createRouteMatcher([
-  "/dashboard(.*)",
-  "/projects(.*)",
-  "/api(.*)",
-  "/models(.*)",
-  "/tools(.*)",
-  "/activity(.*)",
-  "/docs(.*)",
-  "/settings(.*)",
-]);
-
-export default clerkMiddleware(async (auth, req) => {
-  if (isProtectedRoute(req)) {
-    await auth.protect();
-  }
-});
+// Initialize Clerk request context here. Protect each page and route handler
+// at the resource itself so document requests can redirect to sign-in and
+// API handlers can return an intentional JSON 401 response.
+export default clerkMiddleware();
 
 export const config = {
   matcher: [

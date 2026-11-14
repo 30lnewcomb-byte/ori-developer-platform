@@ -32,9 +32,11 @@ flowchart TD
 ### Authentication boundary
 
 - The root layout wraps the application with `ClerkProvider`.
-- `proxy.ts` uses Clerk middleware to protect dashboard, project, API, model, tool, activity, docs, and settings routes.
+- `proxy.ts` initializes Clerk request context for application routes; it does not make route-level authorization decisions.
+- Protected page resources call `auth.protect()` inside the page. Unauthenticated document requests can then follow Clerk's configured sign-in redirect behavior.
+- Route handlers authenticate independently. The Projects API uses `auth()` and returns a JSON 401 when no user is signed in.
 - The home page is public and redirects an authenticated user to `/dashboard`.
-- Protected server routes must still obtain the authenticated identity from Clerk and authorize the requested resource. Middleware protection alone is not a substitute for server-side authorization.
+- Every page, route handler, and server action that reads or mutates protected data must authorize that resource itself. Middleware initialization is not a substitute for resource-level checks.
 
 ### Projects API
 
@@ -150,5 +152,6 @@ Database migrations remain a separate deliberate operation. Do not automatically
 - Vercel Marketplace integration inventory and billing plans could not be read through the available integration-inventory API permission.
 - API key issuance, model catalog, runtime health, tools, audit events, and usage analytics are not yet connected.
 - The repository has no test script or checked-in test suite at this baseline.
+- The resource-level Clerk auth change is in the research branch and must pass the preview redirect/API checks before merge.
 
 These gaps feed the priorities in `PRODUCT_ROADMAP.md`.

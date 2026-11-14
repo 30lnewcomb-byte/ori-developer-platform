@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import ProjectsClient from "./projects-client";
 
 const sections = [
@@ -17,6 +17,7 @@ const sections = [
 export const dynamic = "force-dynamic";
 
 export default async function ProjectsPage() {
+  await auth.protect();
   const user = await currentUser();
   const identity =
     user?.firstName ||

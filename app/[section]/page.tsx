@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { notFound } from "next/navigation";
 
 const sections = [
@@ -112,6 +112,7 @@ export default async function SectionPage({
   const page = pages[section];
   if (!page) notFound();
 
+  await auth.protect();
   const user = await currentUser();
   const identity =
     user?.firstName ||
