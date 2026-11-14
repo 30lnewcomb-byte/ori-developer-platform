@@ -2,7 +2,7 @@
 
 Welcome to the Ori Developer Platform documentation.
 
-This guide describes the platform as it exists today. It separates implemented behavior from planned capabilities so you can build against supported interfaces without guessing.
+This guide describes the platform as it exists today. It separates implemented behavior from planned capabilities so developers can build against supported interfaces without guessing.
 
 ## Start here
 
@@ -11,7 +11,9 @@ This guide describes the platform as it exists today. It separates implemented b
 - [Authentication and security](AUTHENTICATION.md) — sign-in behavior and server-side authorization.
 - [API reference](API_REFERENCE.md) — the currently implemented HTTP API.
 - [Projects](PROJECTS.md) — create and list project records.
+- [Database and migrations](DATABASE.md) — understand the Projects schema and apply its migration safely.
 - [Environment configuration](ENVIRONMENT.md) — configure local and hosted environments.
+- [Deployment guide](DEPLOYMENT.md) — production deployment and verification workflow.
 - [Errors and responses](ERRORS.md) — understand API status codes and recovery steps.
 - [Models and tools](MODELS_AND_TOOLS.md) — current integration status and intended connection model.
 - [Troubleshooting](TROUBLESHOOTING.md) — resolve common setup problems.

@@ -12,13 +12,22 @@ and Neon Postgres.
 
 ## Developer documentation
 
-Start at [docs/README.md](docs/README.md) for the developer documentation index, quickstart, authentication guide, API reference, project guide, environment setup, errors, and troubleshooting.
+Start at [docs/README.md](docs/README.md) for the documentation index.
+
+- [Quickstart](docs/QUICKSTART.md)
+- [API reference](docs/API_REFERENCE.md)
+- [Authentication and security](docs/AUTHENTICATION.md)
+- [Database and migrations](docs/DATABASE.md)
+- [Deployment guide](docs/DEPLOYMENT.md)
+- [Environment configuration](docs/ENVIRONMENT.md)
+- [Projects](docs/PROJECTS.md)
+- [Troubleshooting](docs/TROUBLESHOOTING.md)
 
 ## Projects setup
 
-See [docs/PROJECTS.md](docs/PROJECTS.md) and apply
-[001_create_projects.sql](db/migrations/001_create_projects.sql) to the Neon
-database connected to this Vercel project.
+See [docs/PROJECTS.md](docs/PROJECTS.md) and [docs/DATABASE.md](docs/DATABASE.md)
+before applying [001_create_projects.sql](db/migrations/001_create_projects.sql)
+to the Neon database connected to this Vercel project.
 
 Required server environment:
 - `DATABASE_URL` or `POSTGRES_PRISMA_URL`
