@@ -10,6 +10,7 @@ const guides = [
   { title: "Quickstart", description: "Set up the repository locally and understand the first-run requirements.", file: "QUICKSTART.md", group: "Get started" },
   { title: "Workspace guide", description: "Understand public routes, sign-in, workspace navigation, and what each section actually does.", file: "WORKSPACE.md", group: "Get started" },
   { title: "Platform concepts", description: "Projects, ownership, environments, and the boundaries between resources.", file: "CONCEPTS.md", group: "Get started" },
+  { title: "What makes Ori different", description: "The founding motivation, cost philosophy, and principles that distinguish Ori's goals.", file: "WHAT_MAKES_ORI_DIFFERENT.md", group: "About Ori" },
   { title: "Ori Platform", description: "The user-facing Ori product, its architecture, current experience, and repository boundaries.", file: "ORI_PLATFORM.md", group: "Ori Platform" },
   { title: "Ori VM integration", description: "The server-side VM adapter, health route, execution limits, and operational boundaries.", file: "ORI_VM.md", group: "Ori Platform" },
   { title: "Ori Intelligence", description: "TensorFlow model runtime, server-side integration, API contract, and readiness.", file: "ORI_INTELLIGENCE.md", group: "Ori Platform" },
@@ -29,7 +30,7 @@ const guides = [
   { title: "Contributing", description: "Repository conventions, code review expectations, and documentation rules.", file: "CONTRIBUTING.md", group: "Reference" },
 ];
 
-const groups = ["Get started", "Ori Platform", "API", "Security", "Platform guides", "Operations", "Reference"];
+const groups = ["Get started", "About Ori", "Ori Platform", "API", "Security", "Platform guides", "Operations", "Reference"];
 
 export default function PublicDocumentationPage() {
   return (

@@ -14,6 +14,7 @@ and Neon Postgres.
 
 Start at [docs/README.md](docs/README.md) for the documentation index.
 
+- [What makes Ori different](docs/WHAT_MAKES_ORI_DIFFERENT.md)
 - [Quickstart](docs/QUICKSTART.md)
 - [API reference](docs/API_REFERENCE.md)
 - [Authentication and security](docs/AUTHENTICATION.md)
