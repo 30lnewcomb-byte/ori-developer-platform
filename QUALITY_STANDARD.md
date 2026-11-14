@@ -17,6 +17,8 @@ A feature is not complete because it looks finished or because a deployment turn
 4. **Tell the truth in the interface.** Never invent activity, health, usage, model availability, cost, or completion status. Show unavailable data as unavailable.
 5. **Keep boundaries explicit.** A project, environment, user, service identity, and credential must have a defined owner and permission scope.
 6. **Protect the existing Ori architecture.** The Developer Platform remains a separate product and repository. Do not couple it to Ori Platform or Ori Intelligence internals without an explicit interface and a reason.
+7. **Do not add features for appearance or perceived size.** Every feature must solve a defined developer problem and have an owner, acceptance criteria, and a credible implementation path. If it is not useful, not functional, or not ready, leave it out or label it clearly as planned/unavailable. Never add decorative dashboard cards, duplicate navigation, empty product sections, or placeholder controls just to make Ori look more complete.
+8. **No AI slop.** Do not ship generic filler copy, invented metrics, meaningless charts, gratuitous visual effects, repetitive card grids, or boilerplate features that do not improve a real workflow. Prefer fewer, coherent, well-executed capabilities over a larger but shallow interface. Every screen must communicate real information and make the next useful action clear.
 
 ## 2. UI and UX standard
 

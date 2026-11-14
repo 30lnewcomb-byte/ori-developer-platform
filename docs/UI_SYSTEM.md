@@ -16,6 +16,15 @@ This document describes the initial shared visual system implemented in `app/glo
 - **Shape:** consistent 8px, 12px, and 18px radii for controls, panels, and larger surfaces.
 - **Depth:** use borders and surface changes first; shadows are reserved for major overlays.
 
+## Information architecture and navigation
+
+- Keep the global top bar compact: brand/workspace context, global search where implemented, notifications where functional, and the account menu. Do not turn it into a second navigation menu.
+- Use a collapsible sidebar as the primary workspace navigation. Expanded mode shows clear text labels; collapsed mode keeps recognizable icons, accessible names, and tooltips. Preserve the user's preference where practical.
+- Group destinations by purpose rather than by implementation detail. The intended groups are **Develop** (Overview, Projects, API Keys, Models, Tools), **Information** (Developer Docs), and **Manage** (Activity, Settings), with entries added only when their destination is real and useful.
+- Developer Docs is the documentation home. API Reference and Guides & Tutorials belong inside the documentation experience as sections, not as extra top-level sidebar destinations unless later research demonstrates a genuine need.
+- On narrow screens, use an accessible slide-out navigation drawer rather than squeezing desktop navigation into the header.
+- Do not add navigation items for empty pages, unfinished features, or cosmetic completeness.
+
 ## Core tokens
 
 The CSS custom properties in `:root` are the source of truth:
