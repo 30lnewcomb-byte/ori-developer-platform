@@ -2,16 +2,6 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { notFound } from "next/navigation";
 import WorkspaceShell from "../../components/workspace-shell";
 
-const sections = [
-  { href: "/dashboard", label: "Overview", icon: "⌂" },
-  { href: "/projects", label: "Projects", icon: "◇" },
-  { href: "/api", label: "API access", icon: "↗" },
-  { href: "/models", label: "Models", icon: "◈" },
-  { href: "/tools", label: "Tools", icon: "□" },
-  { href: "/activity", label: "Activity", icon: "◷" },
-  { href: "/docs", label: "Docs", icon: "▤" },
-  { href: "/settings", label: "Settings", icon: "⚙" },
-];
 
 const pages: Record<string, {
   title: string;
