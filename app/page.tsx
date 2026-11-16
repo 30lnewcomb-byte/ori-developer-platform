@@ -89,7 +89,6 @@ export default async function Home() {
         <nav className="landingNav" aria-label="Main navigation">
           <a href="#platform">Platform</a>
           <a href="#workflow">Workflow</a>
-          <a href="#principles">Principles</a>
           <a href="https://ori-platform.vercel.app" target="_blank" rel="noopener noreferrer">Ori Platform ↗</a>
           <Link href="/docs">Documentation</Link>
         </nav>
@@ -215,14 +214,6 @@ export default async function Home() {
             </div>
           </article>
         </div>
-      </section>
-
-      <section className="landingPrinciplesSection" id="principles" aria-labelledby="principles-title">
-        <span className="landingSectionKicker">THE STANDARD</span>
-        <h2 id="principles-title">Current implementation</h2>
-        <p>
-          The Projects feature is implemented, subject to database setup. API access and tools remain in development; model and activity data are not connected.
-        </p>
       </section>
 
       <section className="landingCallToAction" aria-labelledby="landing-cta-title">
