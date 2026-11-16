@@ -32,7 +32,7 @@ const pages: Record<string, {
   },
   api: {
     title: "API access",
-    subtitle: "Credentials with clear boundaries",
+    subtitle: "API credentials",
     description: "The API area is reserved for secure key creation, scoped access, rotation, and revocation.",
     items: [
       { title: "API keys", description: "Secure server-side key storage and one-time secret display must be implemented before keys can be issued.", status: "Not implemented" },
@@ -42,8 +42,8 @@ const pages: Record<string, {
   },
   models: {
     title: "Models",
-    subtitle: "Intelligence, clearly organized",
-    description: "A model registry should show what is available, where it runs, and how requests are routed.",
+    subtitle: "Model services",
+    description: "A model registry and runtime routing are not connected to this workspace.",
     items: [
       { title: "Model registry", description: "No live model inventory is connected to this workspace yet.", status: "Not connected" },
       { title: "Routing", description: "Primary and fallback routing need a runtime control API.", status: "Not configured" },
@@ -53,7 +53,7 @@ const pages: Record<string, {
   tools: {
     title: "Tools",
     subtitle: "Capabilities and permissions",
-    description: "A clear inventory of tools, their availability, and the permissions required to use them.",
+    description: "The tool catalog and permission controls are still in development.",
     items: [
       { title: "Tool catalog", description: "The platform does not have a live tool registry connected yet.", status: "Not connected" },
       { title: "Permissions", description: "Tool-level permission policies need to be defined and enforced server-side.", status: "Not configured" },
@@ -62,8 +62,8 @@ const pages: Record<string, {
   },
   activity: {
     title: "Activity",
-    subtitle: "A trustworthy record of platform changes",
-    description: "Activity should make important actions traceable, including who initiated them and what changed.",
+    subtitle: "Service and audit events",
+    description: "Audit events, runtime events, and activity history are not connected yet.",
     items: [
       { title: "Audit events", description: "A durable audit-event store and event ingestion path are not connected yet.", status: "Not connected" },
       { title: "Service events", description: "Runtime and worker events need a verified event source.", status: "Not connected" },
@@ -72,7 +72,7 @@ const pages: Record<string, {
   },
   docs: {
     title: "Documentation",
-    subtitle: "Build against Ori with confidence",
+    subtitle: "Developer guides and references",
     description: "The documentation area will explain the platform's APIs, authentication, models, tools, and runtime boundaries.",
     items: [
       { title: "Platform guide", description: "The developer platform guide needs to be written and versioned.", status: "In progress" },
@@ -82,7 +82,7 @@ const pages: Record<string, {
   },
   settings: {
     title: "Settings",
-    subtitle: "Control your developer workspace",
+    subtitle: "Account and integration settings",
     description: "Workspace settings will centralize account preferences, integrations, and security controls.",
     items: [
       { title: "Account", description: "Authentication is handled by Clerk. Additional workspace profile controls are not implemented.", status: "Partial" },
@@ -166,7 +166,7 @@ export default async function SectionPage({
 
           <footer className="consoleFooter">
             <span>Ori Developer Platform</span>
-            <span>Statuses are shown only when they can be verified.</span>
+            <span>Feature states reflect the current implementation.</span>
           </footer>
     </WorkspaceShell>
   );
