@@ -46,9 +46,20 @@ A client-supplied project ID is a selector, not proof of permission.
 
 ## Production authentication readiness
 
-A production deployment must use the Clerk production instance and its production configuration. The inspected deployment previously served a Clerk development key and a \`*.clerk.accounts.dev\` Frontend API domain. Until the production Clerk instance/domain is configured and verified, do not treat production authentication as ready for real users.
+Production authentication is not yet verified as production-ready.
 
-For current provider-specific configuration, consult the official [Clerk Next.js documentation](https://clerk.com/docs/quickstarts/nextjs).
+The current Vercel project uses the `ori-developer-platform.vercel.app` hostname. Its environment-variable metadata lists the Clerk publishable and secret key variables for both Preview and Production. The secret values were not read during this audit, so the actual key types and whether the same Clerk instance is being shared cannot be confirmed from metadata alone.
+
+Clerk's production deployment guidance requires a domain you own and can configure through DNS; a `*.vercel.app` hostname is not sufficient for activating a Clerk production instance. Before real production users are invited:
+
+1. Configure an owned domain for Ori Developer Platform.
+2. Create or activate the Clerk production instance for that domain.
+3. Configure the production Clerk keys only for Vercel Production.
+4. Keep development keys assigned to Preview/local development.
+5. Configure the production domain and allowed origins in Clerk.
+6. Redeploy and verify the production Frontend API domain and sign-in flow.
+
+Do not swap keys or change the current sign-in configuration until the owned domain and Clerk production instance are ready. For current provider-specific steps, use the official [Clerk production deployment guide](https://clerk.com/docs/guides/development/deployment/production).
 
 ## Future API keys
 
