@@ -1,153 +1,93 @@
+import Link from "next/link";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { notFound } from "next/navigation";
 import WorkspaceShell from "../../components/workspace-shell";
 
-
-const pages: Record<string, {
-  title: string;
-  subtitle: string;
-  description: string;
-  items: { title: string; description: string; status: string }[];
-}> = {
+const pages: Record<string, { title: string; subtitle: string; description: string; items: { title: string; description: string; status: string }[] }> = {
   dashboard: {
-    title: "Overview",
-    subtitle: "Your Ori developer workspace",
-    description: "Manage project records and review the implementation state of developer services.",
+    title: "Overview", subtitle: "WORKSPACE OVERVIEW",
+    description: "A clear view of your projects and the developer services connected to this workspace.",
     items: [
-      { title: "Projects", description: "Create and manage project records under your account. Database setup is required.", status: "Setup required" },
-      { title: "API access", description: "Scoped API credentials are still being implemented.", status: "In development" },
-      { title: "Model services", description: "View model availability and routing across connected runtimes.", status: "Not connected" },
-      { title: "Tools", description: "The tool registry and permission controls are still being implemented.", status: "In development" },
+      { title: "Projects", description: "Create and manage project records under your account. Database setup is required before storage is available.", status: "Setup required" },
+      { title: "API access", description: "API credentials and project scopes are not available yet.", status: "In development" },
+      { title: "Models", description: "No model registry or runtime connection is linked to this workspace yet.", status: "Not connected" },
+      { title: "Tools", description: "The tool catalog and permission controls are not available yet.", status: "In development" },
+      { title: "Activity", description: "No service or audit event feed is connected yet.", status: "Not connected" },
     ],
   },
-  api: {
-    title: "API access",
-    subtitle: "API credentials",
-    description: "API keys are not available yet. This section describes the planned key, scope, rotation, and revocation controls.",
-    items: [
-      { title: "API keys", description: "Secure server-side key storage and one-time secret display must be implemented before keys can be issued.", status: "Not implemented" },
-      { title: "Scopes", description: "Granular project and capability permissions are not connected yet.", status: "Not configured" },
-      { title: "Usage", description: "Request counts and usage history need an API event pipeline.", status: "Not connected" },
-    ],
-  },
-  models: {
-    title: "Models",
-    subtitle: "Model services",
-    description: "A model registry and runtime routing are not connected to this workspace.",
-    items: [
-      { title: "Model registry", description: "No live model inventory is connected to this workspace yet.", status: "Not connected" },
-      { title: "Routing", description: "Primary and fallback routing need a runtime control API.", status: "Not configured" },
-      { title: "Health", description: "Model health and latency need verified runtime telemetry.", status: "Not connected" },
-    ],
-  },
-  tools: {
-    title: "Tools",
-    subtitle: "Capabilities and permissions",
-    description: "The tool catalog and permission controls are still in development.",
-    items: [
-      { title: "Tool catalog", description: "The platform does not have a live tool registry connected yet.", status: "Not connected" },
-      { title: "Permissions", description: "Tool-level permission policies need to be defined and enforced server-side.", status: "Not configured" },
-      { title: "Availability", description: "Tool health checks and execution status are not connected yet.", status: "Not connected" },
-    ],
-  },
-  activity: {
-    title: "Activity",
-    subtitle: "Service and audit events",
-    description: "Audit events, runtime events, and activity history are not connected yet.",
-    items: [
-      { title: "Audit events", description: "A durable audit-event store and event ingestion path are not connected yet.", status: "Not connected" },
-      { title: "Service events", description: "Runtime and worker events need a verified event source.", status: "Not connected" },
-      { title: "History", description: "No activity history is being reported yet.", status: "Not connected" },
-    ],
-  },
-  settings: {
-    title: "Settings",
-    subtitle: "Account and integration settings",
-    description: "Additional profile controls, service integrations, and workspace security settings are not available yet.",
-    items: [
-      { title: "Account", description: "Authentication is handled by Clerk. Additional workspace profile controls are not implemented.", status: "Partial" },
-      { title: "Integrations", description: "Service connections and their permissions need a secure integration store.", status: "Not connected" },
-      { title: "Security", description: "Audit, session, and access policies need to be surfaced here.", status: "Not configured" },
-    ],
-  },
+  api: { title: "API access", subtitle: "DEVELOPER ACCESS", description: "Manage credentials and project scopes here when the API access service is ready.", items: [
+    { title: "API keys", description: "Secure server-side key storage and one-time secret display must be implemented before keys can be issued.", status: "Not implemented" },
+    { title: "Scopes", description: "Granular project and capability permissions are not connected yet.", status: "Not configured" },
+    { title: "Usage", description: "Request counts and usage history need an API event pipeline.", status: "Not connected" },
+  ]},
+  models: { title: "Models", subtitle: "MODEL SERVICES", description: "Model inventory and runtime routing are not connected to this workspace yet.", items: [
+    { title: "Model registry", description: "No live model inventory is connected to this workspace yet.", status: "Not connected" },
+    { title: "Routing", description: "Primary and fallback routing need a runtime control API.", status: "Not configured" },
+    { title: "Health", description: "Model health and latency need verified runtime telemetry.", status: "Not connected" },
+  ]},
+  tools: { title: "Tools", subtitle: "CAPABILITIES", description: "The tool catalog and permission controls are still in development.", items: [
+    { title: "Tool catalog", description: "The platform does not have a live tool registry connected yet.", status: "Not connected" },
+    { title: "Permissions", description: "Tool-level permission policies need to be defined and enforced server-side.", status: "Not configured" },
+    { title: "Availability", description: "Tool health checks and execution status are not connected yet.", status: "Not connected" },
+  ]},
+  activity: { title: "Activity", subtitle: "WORKSPACE EVENTS", description: "This page will show service and audit events after an event source is connected.", items: [
+    { title: "Audit events", description: "A durable audit-event store and event ingestion path are not connected yet.", status: "Not connected" },
+    { title: "Service events", description: "Runtime and worker events need a verified event source.", status: "Not connected" },
+    { title: "History", description: "No activity history is being reported yet.", status: "Not connected" },
+  ]},
+  settings: { title: "Settings", subtitle: "WORKSPACE SETTINGS", description: "Account authentication is available through Clerk. Additional workspace controls are not implemented yet.", items: [
+    { title: "Account", description: "Authentication and profile controls are managed by Clerk.", status: "Available through Clerk" },
+    { title: "Integrations", description: "Service connections and their permissions need a secure integration store.", status: "Not connected" },
+    { title: "Security", description: "Workspace audit and access policies are not surfaced here yet.", status: "Not configured" },
+  ]},
 };
 
-export default async function SectionPage({
-  params,
-}: {
-  params: Promise<{ section: string }>;
-}) {
+const overviewLinks = [
+  { href: "/projects", number: "01", title: "Projects", description: "Create and organize project records.", action: "Open projects", status: "Setup required" },
+  { href: "/api", number: "02", title: "API access", description: "Credentials, scopes, and usage.", action: "View API access", status: "In development" },
+  { href: "/models", number: "03", title: "Models", description: "Model inventory and runtime connections.", action: "View models", status: "Not connected" },
+  { href: "/tools", number: "04", title: "Tools", description: "Tool catalog and permission controls.", action: "View tools", status: "In development" },
+  { href: "/activity", number: "05", title: "Activity", description: "Service events and audit history.", action: "View activity", status: "Not connected" },
+];
+
+export default async function SectionPage({ params }: { params: Promise<{ section: string }> }) {
   const { section } = await params;
   const page = pages[section];
   if (!page) notFound();
-
   await auth.protect();
   const user = await currentUser();
-  const identity =
-    user?.firstName ||
-    user?.primaryEmailAddress?.emailAddress ||
-    "Developer";
+  const identity = user?.firstName || user?.primaryEmailAddress?.emailAddress || "Developer";
 
   return (
     <WorkspaceShell activePath={`/${section}`} title={page.title} identity={identity}>
-          <div className="consolePageHeading">
-            <div>
-              <div className="consoleEyebrow">ORI DEVELOPER PLATFORM</div>
-              <h1>{page.title}</h1>
-              <p className="consoleSubtitle">{page.description}</p>
-            </div>
+      <div className="consoleContent">
+        <div className="consolePageHeading">
+          <div><div className="consoleEyebrow">{page.subtitle}</div><h1>{page.title}</h1><p className="consoleSubtitle">{page.description}</p></div>
+          {section === "dashboard" ? <Link className="primaryButton" href="/projects">View projects <span aria-hidden="true">↗</span></Link> : null}
+        </div>
+        {section === "dashboard" ? <>
+          <section className="overviewStatus" aria-label="Workspace setup status">
+            <div className="overviewStatusIcon" aria-hidden="true">i</div>
+            <div className="overviewStatusCopy"><strong>Workspace setup is in progress</strong><p>Project storage needs a database migration. API access and tools are being built; model and activity services are not connected.</p></div>
+            <span className="overviewStatusLabel">SETUP REQUIRED</span>
+          </section>
+          <div className="overviewSectionHeading"><div><h2>Workspace services</h2><p>Current availability, without hiding unfinished integrations.</p></div><span>5 AREAS</span></div>
+          <div className="overviewGrid">
+            {overviewLinks.map((item) => <Link className="overviewCard" href={item.href} key={item.href}>
+              <div className="overviewCardTop"><span>{item.number}</span><span className="overviewCardStatus">{item.status}</span></div>
+              <h3>{item.title}</h3><p>{item.description}</p><span className="overviewCardAction">{item.action} <span aria-hidden="true">→</span></span>
+            </Link>)}
           </div>
-
-          {section === "dashboard" && (
-            <div className="consoleWelcome">
-              <div className="consoleWelcomeMark">O</div>
-              <div>
-                <strong>Project records are implemented; other services are not connected yet.</strong>
-                <p>Project storage requires the Neon migration. API access and tools are still in development; model and activity data are not connected.</p>
-              </div>
-              <span className="consoleStatusPill">SETUP INCOMPLETE</span>
-            </div>
-          )}
-
-          <div className="consoleSectionHeader">
-            <div>
-              <h2>{section === "dashboard" ? "Workspace areas" : "Configuration areas"}</h2>
-              <p>{section === "dashboard" ? "The main parts of your developer platform." : "Current implementation state for this section."}</p>
-            </div>
-          </div>
-
-          <div className="consoleResourceGrid">
-            {page.items.map((item, index) => (
-              <article className="consoleResourceCard" key={item.title}>
-                <div className="consoleResourceTop">
-                  <span className="consoleResourceNumber">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="consoleResourceStatus">{item.status}</span>
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </article>
-            ))}
-          </div>
-
-          {section === "dashboard" && (
-            <section className="consoleNextSteps">
-              <div>
-                <div className="consoleEyebrow">FOUNDATION</div>
-                <h2>What comes next</h2>
-                <p>Finish database setup, then implement each integration before showing live data or enabling sensitive actions.</p>
-              </div>
-              <div className="consoleStepList">
-                <div><span>01</span><strong>Persistent project data</strong><small>Database and project ownership</small></div>
-                <div><span>02</span><strong>Service connections</strong><small>Runtime and model health APIs</small></div>
-                <div><span>03</span><strong>Secure developer access</strong><small>Server-side secrets, scopes, and audit events</small></div>
-              </div>
-            </section>
-          )}
-
-          <footer className="consoleFooter">
-            <span>Ori Developer Platform</span>
-            <span>Feature states reflect the current implementation.</span>
-          </footer>
+          <section className="overviewNext"><div><div className="consoleEyebrow">NEXT STEP</div><h2>Finish project storage setup</h2><p>Apply the existing Neon migration before relying on project records. The Projects page will show the setup response if storage is not ready.</p></div><Link className="quietButton" href="/projects">Open Projects <span aria-hidden="true">↗</span></Link></section>
+        </> : <>
+          <div className="consoleSectionHeader"><div><h2>Configuration areas</h2><p>Current implementation state for this section.</p></div></div>
+          <div className="consoleResourceGrid">{page.items.map((item, index) => <article className="consoleResourceCard" key={item.title}>
+            <div className="consoleResourceTop"><span className="consoleResourceNumber">{String(index + 1).padStart(2, "0")}</span><span className="consoleResourceStatus">{item.status}</span></div>
+            <h3>{item.title}</h3><p>{item.description}</p>
+          </article>)}</div>
+        </>}
+        <footer className="consoleFooter"><span>Ori Developer Platform</span><span>Feature states reflect the current implementation.</span></footer>
+      </div>
     </WorkspaceShell>
   );
 }
