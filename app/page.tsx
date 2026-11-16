@@ -56,14 +56,14 @@ const capabilities = [
   {
     number: "02",
     title: "Access controls",
-    text: "Credentials and tools need clear owners, scopes, and lifecycles. The interface should show what an action can access before you use it.",
+    text: "Scoped API credentials and tool permissions are not available yet.",
     status: "Planned",
     statusClass: "planned",
   },
   {
     number: "03",
     title: "Operational data",
-    text: "Usage, model health, and activity should come from connected services—not sample numbers or decorative charts.",
+    text: "Usage, model health, and activity data are not connected to this workspace yet.",
     status: "Planned",
     statusClass: "planned",
   },
@@ -111,7 +111,7 @@ export default async function Home() {
             <span>Know what is ready.</span>
           </h1>
           <p className="landingLead">
-            A developer workspace for managing project records and understanding which tools and integrations are available today. Areas still being built or waiting for a connection are labeled clearly.
+            Create and manage project records. The other workspace areas show whether their API, model, tool, and activity integrations are implemented, still in development, or not connected.
           </p>
 
           <div className="landingHeroActions">
@@ -126,7 +126,7 @@ export default async function Home() {
           <div className="landingHeroFootnote">
             <span>Separate from Ori Platform</span>
             <span className="landingFootnoteDivider" />
-            <span>Availability shown by feature</span>
+            <span>Current implementation status</span>
           </div>
         </div>
 
@@ -155,7 +155,7 @@ export default async function Home() {
 
           <div className="landingPreviewFooter">
             <span className="landingPreviewFooterDot" />
-            Working areas are distinguished from features still in development.
+            Project records are implemented; the database migration must be applied before they can be used.
           </div>
         </aside>
       </section>
@@ -165,7 +165,7 @@ export default async function Home() {
           <span className="landingSectionKicker">CURRENT IMPLEMENTATION</span>
           <h2 id="platform-title">Project records are the starting point.</h2>
           <p>
-            Project records are available now. API access, model connections, tools, and activity will be added as those parts are implemented and connected.
+            The Projects API and owner-scoped interface are implemented. The Neon migration must be applied before project storage is ready. API access and tools are still in development; model and activity data are not connected.
           </p>
         </div>
 
@@ -186,9 +186,9 @@ export default async function Home() {
       <section className="landingWorkflowSection" id="workflow" aria-labelledby="workflow-title">
         <div className="landingWorkflowIntro">
           <span className="landingSectionKicker">HOW IT FITS TOGETHER</span>
-          <h2 id="workflow-title">The intended project workflow.</h2>
+          <h2 id="workflow-title">Project workflow</h2>
           <p>
-            The current flow starts with a project record. Resource connections and activity views are being added as those services become available.
+            Create a project record first. API access and model connections are not available yet, so the later steps are not active.
           </p>
         </div>
 
@@ -197,21 +197,21 @@ export default async function Home() {
             <span>01</span>
             <div>
               <h3>Organize a project</h3>
-              <p>Create a project record and assign its owner.</p>
+              <p>Create a project record under your account.</p>
             </div>
           </article>
           <article>
             <span>02</span>
             <div>
               <h3>Connect its resources</h3>
-              <p>Add API access, model services, and tools when those integrations are available.</p>
+              <p>Connect API access, model services, and tools after those integrations are implemented.</p>
             </div>
           </article>
           <article>
             <span>03</span>
             <div>
               <h3>Understand what happened</h3>
-              <p>Inspect activity once the relevant service data is connected.</p>
+              <p>Review activity after the relevant services provide event data.</p>
             </div>
           </article>
         </div>
@@ -219,11 +219,9 @@ export default async function Home() {
 
       <section className="landingPrinciplesSection" id="principles" aria-labelledby="principles-title">
         <span className="landingSectionKicker">THE STANDARD</span>
-        <h2 id="principles-title">Clear status. Defined permissions. Real data.</h2>
+        <h2 id="principles-title">Current implementation</h2>
         <p>
-          No invented metrics, no mystery controls, and no unfinished capability
-          presented as ready. The interface should tell you what works, what
-          needs setup, and what is still being built.
+          The Projects feature is implemented, subject to database setup. API access and tools remain in development; model and activity data are not connected.
         </p>
       </section>
 
