@@ -1810,3 +1810,85 @@ select:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .landingCapability { transition: none; }
 }
+
+
+/* Signed-in workspace refinement */
+.workspaceShell { grid-template-columns: 264px minmax(0, 1fr); background: #0e131a; }
+.workspaceShell.isCollapsed { grid-template-columns: 78px minmax(0, 1fr); }
+.workspaceSidebar { padding: 19px 13px 17px; border-right-color: #29323e; background: #151a21; }
+.workspaceSidebarHeader { min-height: 54px; padding-bottom: 15px; border-bottom-color: #2b333e; }
+.workspaceBrandMark { width: 34px; height: 34px; border-radius: 9px; background: #26384d; border-color: #45617f; color: #e0edfc; }
+.workspaceBrandCopy { letter-spacing: .17em; }
+.workspaceBrandCopy small { color: #8492a3; letter-spacing: .13em; }
+.workspaceCollapseButton { width: 29px; height: 29px; border: 1px solid #343e4a; border-radius: 7px; background: #1b222b; color: #b9c5d3; cursor: pointer; }
+.workspaceCollapseButton:hover { border-color: #5b789b; background: #222d39; color: #fff; }
+.workspaceNavigation { gap: 25px; padding-top: 25px; }
+.workspaceNavGroup { gap: 9px; }
+.workspaceNavGroupLabel { padding: 0 11px; color: #7f8c9d; font-size: 9px; letter-spacing: .14em; }
+.workspaceNavItems { gap: 4px; }
+.workspaceNavItem { min-height: 41px; padding: 0 11px; border: 1px solid transparent; border-radius: 8px; color: #b1bdca; transition: background .16s ease, border-color .16s ease, color .16s ease; }
+.workspaceNavItem:hover { background: #202833; color: #f1f5fa; }
+.workspaceNavItem.active { border-color: #354b64; background: #243347; color: #f2f7fd; box-shadow: inset 2px 0 0 #77a9e4; }
+.workspaceNavIcon { width: 21px; color: #9db0c5; font-size: 15px; }
+.workspaceNavItem.active .workspaceNavIcon { color: #c9e0fc; }
+.workspaceSidebarBottom { padding: 15px 8px 3px; border-top-color: #2b333e; }
+.workspaceEnvironment { color: #8e9cad; font-size: 8px; letter-spacing: .12em; }
+.workspaceSidebarCaption { color: #788697; font-size: 10px; }
+.workspaceMain { min-width: 0; background: #10151c; }
+.workspaceTopbar { min-height: 66px; padding: 0 clamp(20px, 3.3vw, 42px); border-bottom: 1px solid #29323d; background: rgba(17, 23, 31, .94); }
+.workspaceBreadcrumb { display: flex; align-items: center; gap: 11px; color: #8b98a8; font-size: 12px; }
+.workspaceBreadcrumb strong { color: #e6edf5; font-weight: 600; }
+.workspaceIdentity { gap: 13px; color: #b5c0ce; }
+.workspaceIdentityName { max-width: 190px; overflow: hidden; color: #9eabba; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.workspaceProductLink { display: inline-flex; align-items: center; gap: 7px; min-height: 32px; padding: 0 10px; border: 1px solid #344456; border-radius: 7px; color: #c6d8ed; font-size: 10px; }
+.workspaceProductLink:hover { border-color: #5b789b; background: #1b2734; color: #fff; }
+.consoleContent { width: min(100%, 1440px); padding: 39px clamp(20px, 4vw, 52px) 32px; }
+.consolePageHeading { align-items: flex-end; margin-bottom: 30px; }
+.consolePageHeading h1 { font-size: clamp(31px, 3.6vw, 42px); letter-spacing: -.05em; }
+.consoleEyebrow { color: #8eafd4; }
+.consoleSubtitle { max-width: 760px; font-size: 13px; line-height: 1.75; }
+.consoleFooter { margin-top: 42px; padding-top: 17px; border-top-color: #2a333e; color: #8290a0; }
+.overviewStatus { display: flex; align-items: center; gap: 14px; padding: 17px 19px; border: 1px solid #39495b; border-radius: 10px; background: #19232e; }
+.overviewStatusIcon { display: grid; width: 31px; height: 31px; flex: none; place-items: center; border: 1px solid #4b6078; border-radius: 50%; color: #c4d8ee; font: 600 14px var(--font-display); }
+.overviewStatusCopy { min-width: 0; }
+.overviewStatusCopy strong { color: #e8eef6; font-size: 12px; }
+.overviewStatusCopy p { margin: 4px 0 0; color: #a4b2c2; font-size: 11px; line-height: 1.6; }
+.overviewStatusLabel { margin-left: auto; padding: 6px 8px; border: 1px solid #66583e; border-radius: 5px; color: #d7c39b; font: 8px var(--font-mono); letter-spacing: .08em; white-space: nowrap; }
+.overviewSectionHeading { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin: 34px 0 14px; }
+.overviewSectionHeading h2 { margin: 0; color: #e8eef5; font: 600 17px var(--font-display); }
+.overviewSectionHeading p { margin: 5px 0 0; color: #8795a5; font-size: 11px; }
+.overviewSectionHeading > span { color: #7f8d9d; font: 9px var(--font-mono); letter-spacing: .1em; }
+.overviewGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.overviewCard { display: flex; min-width: 0; min-height: 174px; flex-direction: column; padding: 18px; border: 1px solid #303b48; border-radius: 10px; background: #171e27; transition: border-color .16s ease, background .16s ease, transform .16s ease; }
+.overviewCard:hover { transform: translateY(-2px); border-color: #526b87; background: #1b2530; }
+.overviewCard:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.overviewCardTop { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.overviewCardTop > span:first-child { color: #8192a6; font: 10px var(--font-mono); }
+.overviewCardStatus { padding: 5px 7px; border: 1px solid #3b4b5d; border-radius: 5px; color: #b4c5d8; font-size: 9px; }
+.overviewCard h3 { margin: 19px 0 5px; color: #edf2f8; font-size: 17px; font-weight: 600; }
+.overviewCard p { margin: 0; color: #9aa8b8; font-size: 11px; line-height: 1.65; }
+.overviewCardAction { display: flex; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 17px; color: #a9c7e9; font-size: 10px; }
+.overviewCardAction span { font-size: 15px; line-height: .8; }
+.overviewNext { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 20px; padding: 20px; border: 1px solid #303b48; border-radius: 10px; background: #141b23; }
+.overviewNext h2 { margin: 7px 0 5px; color: #e8eef5; font: 600 17px var(--font-display); }
+.overviewNext p { max-width: 690px; margin: 0; color: #9aa8b8; font-size: 11px; line-height: 1.7; }
+.overviewNext .quietButton { flex: none; }
+.consoleResourceCard { border-color: #303b48; border-radius: 10px; background: #171e27; }
+.consoleResourceCard h3 { color: #edf2f8; }
+.consoleResourceCard p { color: #9aa8b8; line-height: 1.7; }
+.consoleResourceStatus { border-radius: 5px; }
+@media (max-width: 900px) { .workspaceShell { grid-template-columns: 232px minmax(0, 1fr); } .workspaceShell.isCollapsed { grid-template-columns: 70px minmax(0, 1fr); } .overviewGrid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) {
+  .workspaceShell, .workspaceShell.isCollapsed { display: block; }
+  .workspaceSidebar { width: min(290px, calc(100vw - 54px)); }
+  .workspaceTopbar { min-height: 60px; padding: 0 17px; }
+  .workspaceIdentityName, .workspaceProductLink { display: none; }
+  .consoleContent { padding: 29px 18px 24px; }
+  .consolePageHeading { align-items: flex-start; flex-direction: column; }
+  .overviewStatus { align-items: flex-start; flex-wrap: wrap; }
+  .overviewStatusLabel { margin-left: 45px; }
+  .overviewNext { align-items: flex-start; flex-direction: column; }
+  .overviewNext .quietButton { width: 100%; }
+  .consoleFooter { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { .workspaceShell, .workspaceNavItem, .overviewCard { transition: none; } .overviewCard:hover { transform: none; } }
