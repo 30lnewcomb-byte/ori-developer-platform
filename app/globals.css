@@ -360,7 +360,7 @@ select:focus-visible {
 .landingPreviewNumber {
   padding-top: 2px;
   color: #667c93;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 9px;
 }
 
@@ -464,7 +464,7 @@ select:focus-visible {
 
 .landingCapabilityNumber {
   color: #7da7d4;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 9px;
 }
 
@@ -505,7 +505,7 @@ select:focus-visible {
 
 .landingWorkflowSteps article > span {
   color: #7fa9d6;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
 }
 
@@ -984,7 +984,7 @@ select:focus-visible {
 
 .consoleResourceNumber {
   color: #71869e;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
 }
 
@@ -1048,7 +1048,7 @@ select:focus-visible {
 .consoleStepList > div > span {
   grid-row: span 2;
   color: #80a8d7;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
 }
 
@@ -1274,7 +1274,7 @@ select:focus-visible {
 
 .projectsProjectInfo > span {
   color: #8394a8;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
 }
 
