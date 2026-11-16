@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Documentation | Ori Developer Platform",
-  description: "Public documentation for Ori Platform, Ori Intelligence, and Ori Developer Platform."
+  description: "Developer documentation covering Ori applications, APIs, architecture, and current implementation status."
 };
 
 const guides = [
@@ -49,7 +49,7 @@ export default function PublicDocumentationPage() {
       <section className="publicDocsHero">
         <span className="landingSectionKicker">ORI DEVELOPER PLATFORM</span>
         <h1>Documentation.</h1>
-        <p>Documentation for the Ori ecosystem: Ori Platform, Ori Intelligence, and Ori Developer Platform. Public access—no account or sign-in required.</p>
+        <p>Guides for Ori Platform, Ori Intelligence, and Ori Developer Platform. No account is required to read them.</p>
         <div className="publicDocsMeta">
           <span>Public access</span><span>·</span><span>Current implementation, clearly labeled</span>
         </div>
