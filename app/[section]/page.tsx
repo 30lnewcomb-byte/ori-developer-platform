@@ -20,20 +20,10 @@ const pages: Record<string, {
       { title: "Tools", description: "The tool registry and permission controls are still being implemented.", status: "In development" },
     ],
   },
-  projects: {
-    title: "Projects",
-    subtitle: "Your applications, in one place",
-    description: "Projects will provide a home for app identity, environments, and project-scoped access.",
-    items: [
-      { title: "Project registry", description: "A persistent project database has not been connected yet.", status: "Not connected" },
-      { title: "Environments", description: "Development and production environment management is not available yet.", status: "Not configured" },
-      { title: "Access boundaries", description: "Project-level roles and permissions need a backend policy layer.", status: "Not configured" },
-    ],
-  },
   api: {
     title: "API access",
     subtitle: "API credentials",
-    description: "The API area is reserved for secure key creation, scoped access, rotation, and revocation.",
+    description: "API keys are not available yet. This section describes the planned key, scope, rotation, and revocation controls.",
     items: [
       { title: "API keys", description: "Secure server-side key storage and one-time secret display must be implemented before keys can be issued.", status: "Not implemented" },
       { title: "Scopes", description: "Granular project and capability permissions are not connected yet.", status: "Not configured" },
@@ -70,20 +60,10 @@ const pages: Record<string, {
       { title: "History", description: "No activity history is being reported yet.", status: "Not connected" },
     ],
   },
-  docs: {
-    title: "Documentation",
-    subtitle: "Developer guides and references",
-    description: "The documentation area will explain the platform's APIs, authentication, models, tools, and runtime boundaries.",
-    items: [
-      { title: "Platform guide", description: "The developer platform guide needs to be written and versioned.", status: "In progress" },
-      { title: "API reference", description: "An API reference can be generated once the public API contract is established.", status: "Not available" },
-      { title: "Integration guides", description: "Guides will follow the actual supported integrations, not assumed capabilities.", status: "Planned" },
-    ],
-  },
   settings: {
     title: "Settings",
     subtitle: "Account and integration settings",
-    description: "Workspace settings will centralize account preferences, integrations, and security controls.",
+    description: "Additional profile controls, service integrations, and workspace security settings are not available yet.",
     items: [
       { title: "Account", description: "Authentication is handled by Clerk. Additional workspace profile controls are not implemented.", status: "Partial" },
       { title: "Integrations", description: "Service connections and their permissions need a secure integration store.", status: "Not connected" },
