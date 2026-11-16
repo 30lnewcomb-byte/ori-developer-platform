@@ -15,7 +15,7 @@ const workspaceAreas = [
     number: "02",
     icon: "↗",
     name: "API access",
-    description: "Planned: create API credentials and assign their scopes.",
+    description: "Create API credentials and assign scopes for project access.",
     detail: "In development",
     state: "development",
   },
@@ -23,7 +23,7 @@ const workspaceAreas = [
     number: "03",
     icon: "◈",
     name: "Models",
-    description: "Planned: check which model services are connected and ready.",
+    description: "Connect model services and check whether a runtime is ready.",
     detail: "Not connected",
     state: "pending",
   },
@@ -31,7 +31,7 @@ const workspaceAreas = [
     number: "04",
     icon: "□",
     name: "Tools",
-    description: "Planned: review tools and the permissions each one requires.",
+    description: "Review available tools and the permissions each one requires.",
     detail: "In development",
     state: "development",
   },
@@ -39,7 +39,7 @@ const workspaceAreas = [
     number: "05",
     icon: "◷",
     name: "Activity",
-    description: "Planned: inspect API requests, project changes, and service events.",
+    description: "Inspect API requests, project changes, and service events.",
     detail: "Not connected",
     state: "pending",
   },
@@ -165,7 +165,7 @@ export default async function Home() {
           <span className="landingSectionKicker">CURRENT IMPLEMENTATION</span>
           <h2 id="platform-title">Project records are the starting point.</h2>
           <p>
-            Start with a project record. Its access settings, model connections, tools, and activity belong alongside it.
+            Project records are available now. API access, model connections, tools, and activity will be added as those parts are implemented and connected.
           </p>
         </div>
 
