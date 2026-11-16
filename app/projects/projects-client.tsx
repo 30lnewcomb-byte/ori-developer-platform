@@ -102,7 +102,7 @@ export default function ProjectsClient() {
           <div>
             <div className="consoleEyebrow">NEW PROJECT</div>
             <h2>Create a project</h2>
-            <p>Start with a name. You can add environments and credentials later.</p>
+            <p>Create a project record for an application. Environment and API configuration are not available yet.</p>
           </div>
           <span className="projectsCreateMark" aria-hidden="true">＋</span>
         </div>
@@ -179,7 +179,7 @@ export default function ProjectsClient() {
         <div className="projectsEmptyState">
           <span className="projectsEmptyMark" aria-hidden="true">◇</span>
           <strong>No projects yet</strong>
-          <p>Create your first project to give an Ori-powered application its own workspace.</p>
+          <p>Create your first project record. It will be stored under your account.</p>
         </div>
       )}
     </div>
