@@ -40,7 +40,15 @@ The project currently has integration-related environment metadata, but metadata
 
 ## Clerk production configuration
 
-Do not use a Clerk development instance for real production users. Configure a Clerk production instance and its production domain according to Clerk's current documentation. Verify the production page loads the expected production publishable key and Frontend API domain before calling authentication production-ready.
+Do not use a Clerk development instance for real production users. Clerk requires a domain you own and can configure through DNS to activate a production instance; the current `*.vercel.app` hostname is not sufficient.
+
+Assign environment variables deliberately:
+- Preview and local development: Clerk development keys.
+- Production: Clerk production keys for the owned production domain.
+
+The current Vercel environment metadata lists both Clerk key variables for Preview and Production. Metadata does not reveal whether their underlying values are development or production keys, so verify the actual instance configuration in Clerk and Vercel before changing anything. Do not copy the same development credentials into Production as a shortcut.
+
+After configuring the owned domain and production Clerk instance, redeploy and verify the production Frontend API domain and sign-in flow. See the official [Clerk production deployment guide](https://clerk.com/docs/guides/development/deployment/production).
 
 ## Database safety
 
