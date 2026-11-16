@@ -1603,3 +1603,196 @@ select:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .workspaceShell, .workspaceSidebar, .workspaceNavItem { transition: none; }
 }
+
+
+/* Public landing refinement: visible feature state and clearer navigation */
+.landingHeader {
+  min-height: 82px;
+  border-bottom-color: #2b3949;
+}
+.landingNav {
+  flex-wrap: wrap;
+  gap: clamp(14px, 2vw, 27px);
+}
+.landingNav a {
+  white-space: nowrap;
+}
+.landingNav a:focus-visible,
+.landingHeaderActions a:focus-visible,
+.landingFooter a:focus-visible {
+  outline: 2px solid #9bc4f5;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+.landingHero {
+  padding-top: clamp(76px, 9vw, 120px);
+  padding-bottom: clamp(78px, 9vw, 116px);
+}
+.landingHeroCopy h1 {
+  max-width: 650px;
+  font-size: clamp(48px, 5.8vw, 74px);
+  line-height: 1.01;
+}
+.landingLead {
+  max-width: 565px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.landingWorkspacePreview {
+  padding: clamp(18px, 2.3vw, 25px);
+  background:
+    radial-gradient(circle at 90% 0%, rgba(76, 131, 195, .11), transparent 38%),
+    #121b26;
+}
+.landingPreviewTop {
+  align-items: center;
+}
+.landingPreviewTop h2 {
+  font-size: 19px;
+}
+.landingPreviewRow {
+  grid-template-columns: 24px 24px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 76px;
+}
+.landingPreviewDetails { gap: 4px; }
+.landingPreviewDetails small {
+  max-width: 300px;
+  line-height: 1.55;
+}
+.landingPreviewDetail {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border: 1px solid #3b4b5c;
+  border-radius: 5px;
+  color: #c2cedb;
+  font-size: 8px;
+  font-weight: 650;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.landingPreviewDetail.available {
+  border-color: #426c5a;
+  background: rgba(65, 126, 91, .13);
+  color: #a8d3b6;
+}
+.landingPreviewDetail.development {
+  border-color: #495b70;
+  background: rgba(90, 119, 151, .12);
+  color: #b6c9df;
+}
+.landingPreviewDetail.pending {
+  border-color: #6c5b3d;
+  background: rgba(153, 122, 68, .12);
+  color: #d9c49b;
+}
+.landingPreviewFooter {
+  padding-top: 16px;
+  line-height: 1.6;
+}
+.landingCapability {
+  display: flex;
+  min-height: 205px;
+  flex-direction: column;
+  padding: 18px;
+  background: linear-gradient(150deg, #131e2a, #101720);
+  transition: border-color .16s ease, background-color .16s ease, transform .16s ease;
+}
+.landingCapability:hover {
+  border-color: #40566e;
+  transform: translateY(-2px);
+}
+.landingCapabilityTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.landingCapabilityStatus {
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  padding: 3px 7px;
+  border: 1px solid #3b4b5c;
+  border-radius: 4px;
+  color: #b6c5d7;
+  font: 8px/1.35 var(--font-mono);
+  white-space: nowrap;
+}
+.landingCapabilityStatus.available {
+  border-color: #426c5a;
+  background: rgba(65, 126, 91, .13);
+  color: #a8d3b6;
+}
+.landingCapabilityStatus.planned {
+  border-color: #495b70;
+  background: rgba(90, 119, 151, .12);
+  color: #b6c9df;
+}
+.landingCapability h3 {
+  margin-top: 33px;
+  font-size: 14px;
+}
+.landingCapability p {
+  font-size: 11px;
+  line-height: 1.7;
+}
+.landingPlatformSection {
+  padding-top: 74px;
+  padding-bottom: 83px;
+}
+.landingSectionHeading p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.landingWorkflowSection {
+  padding-top: 72px;
+  padding-bottom: 78px;
+}
+.landingWorkflowSteps h3 { font-size: 13px; }
+.landingWorkflowSteps p { font-size: 11px; line-height: 1.7; }
+@media (max-width: 1000px) {
+  .landingHero {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, .9fr);
+  }
+  .landingPreviewRow {
+    grid-template-columns: 21px 22px minmax(0, 1fr);
+  }
+  .landingPreviewDetail {
+    grid-column: 3;
+    justify-self: start;
+    margin-top: 1px;
+  }
+}
+@media (max-width: 760px) {
+  .landingNav {
+    flex-wrap: wrap;
+    row-gap: 12px;
+    column-gap: 19px;
+  }
+  .landingHero {
+    padding-top: 63px;
+  }
+  .landingWorkspacePreview { max-width: 680px; }
+  .landingCapability { min-height: 0; }
+  .landingCapability h3 { margin-top: 22px; }
+}
+@media (max-width: 420px) {
+  .landingNav { column-gap: 14px; row-gap: 10px; }
+  .landingNav a { font-size: 11px; }
+  .landingPreviewRow {
+    grid-template-columns: 18px 20px minmax(0, 1fr);
+    gap: 7px;
+    padding: 13px 0;
+  }
+  .landingPreviewDetails strong { font-size: 10px; }
+  .landingPreviewDetails small { font-size: 8px; }
+  .landingPreviewDetail { font-size: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landingCapability { transition: none; }
+}
