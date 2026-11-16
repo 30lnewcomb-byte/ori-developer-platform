@@ -1986,3 +1986,65 @@ select:focus-visible {
   .accountSettingsPanel { margin-inline: -2px; }
   .workspaceDocsLink { align-items: flex-start; }
 }
+
+
+/* API access: document only endpoints that exist today */
+.apiAvailability {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 16px 18px;
+  border: 1px solid #385344;
+  border-radius: 10px;
+  background: #17231f;
+}
+.apiAvailabilityMark {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  place-items: center;
+  border: 1px solid #527a62;
+  border-radius: 50%;
+  color: #b7dfc5;
+  font-size: 14px;
+}
+.apiAvailability strong { color: #e5f2e9; font-size: 12px; }
+.apiAvailability p { margin: 4px 0 0; color: #a8bdb0; font-size: 11px; line-height: 1.65; }
+.apiEndpointSection, .apiAuthSection { margin-top: 31px; }
+.apiSectionHeading { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 13px; }
+.apiSectionHeading h2 { margin: 0; color: #e8eef5; font: 600 17px var(--font-display); }
+.apiSectionHeading p { margin: 5px 0 0; color: #8795a5; font-size: 11px; }
+.apiSectionHeading > span { color: #8191a3; font: 9px var(--font-mono); letter-spacing: .1em; }
+.apiEndpointCard { margin-top: 11px; padding: 18px; border: 1px solid #303b48; border-radius: 10px; background: #171e27; }
+.apiEndpointHeader { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.apiEndpointHeader > code { color: #edf3fa; font: 12px var(--font-mono); }
+.apiMethod { min-width: 43px; padding: 5px 7px; border: 1px solid #3b526b; border-radius: 5px; text-align: center; font: 9px var(--font-mono); letter-spacing: .06em; }
+.apiMethod.get { border-color: #3e6177; background: #1a2a36; color: #b8d8ec; }
+.apiMethod.post { border-color: #52664c; background: #202c22; color: #c8dfb9; }
+.apiEndpointPurpose { margin-left: auto; color: #8e9cad; font-size: 10px; }
+.apiEndpointCard > p { margin: 12px 0 14px; color: #9baaba; font-size: 11px; line-height: 1.7; }
+.apiCodeLabel, .apiDetailLabel { margin-bottom: 7px; color: #8eafd4; font: 9px var(--font-mono); letter-spacing: .1em; }
+.apiCode { overflow-x: auto; margin: 0; padding: 14px; border: 1px solid #2c3947; border-radius: 7px; background: #0e141b; color: #d5e0ec; font: 10px/1.75 var(--font-mono); tab-size: 2; }
+.apiCode code { white-space: pre; }
+.apiResponseLine { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 12px; color: #8e9cad; font-size: 10px; }
+.apiResponseLine code { color: #b9cce0; font: 10px var(--font-mono); }
+.apiFieldRules { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 12px; color: #9baaba; font-size: 10px; }
+.apiFieldRules strong { color: #dce6f1; font-family: var(--font-mono); font-weight: 500; }
+.apiAuthGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; }
+.apiAuthGrid article { min-width: 0; padding: 16px; border: 1px solid #303b48; border-radius: 9px; background: #151c25; }
+.apiAuthGrid h3 { margin: 8px 0 6px; color: #e5edf6; font-size: 12px; font-weight: 600; }
+.apiAuthGrid p { margin: 0; color: #9baaba; font-size: 10px; line-height: 1.7; }
+.apiAuthGrid p code { color: #c7d8ea; font: 10px var(--font-mono); }
+.apiDocsLink { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 18px; padding: 16px 18px; border: 1px solid #303b48; border-radius: 9px; background: #141b23; }
+.apiDocsLink strong { color: #e5edf6; font-size: 11px; }
+.apiDocsLink p { margin: 4px 0 0; color: #929fb0; font-size: 10px; line-height: 1.6; }
+.apiDocsLink a { flex: none; color: #b6d2f1; font-size: 10px; }
+.apiDocsLink a:hover { color: #fff; }
+@media (max-width: 900px) { .apiAuthGrid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) {
+  .apiEndpointCard { padding: 14px; }
+  .apiEndpointPurpose { width: 100%; margin-left: 0; }
+  .apiDocsLink { align-items: flex-start; flex-direction: column; }
+  .apiDocsLink a { min-height: 28px; }
+}
