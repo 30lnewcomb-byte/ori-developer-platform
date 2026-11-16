@@ -101,17 +101,34 @@ export async function POST(request: Request) {
     return Response.json({ error: "Authentication required." }, { status: 401 });
   }
 
-  let body: ProjectInput;
+  let parsedBody: unknown;
 
   try {
-    body = (await request.json()) as ProjectInput;
+    parsedBody = await request.json();
   } catch {
     return Response.json({ error: "Request body must be valid JSON." }, { status: 400 });
   }
 
+  if (
+    typeof parsedBody !== "object" ||
+    parsedBody === null ||
+    Array.isArray(parsedBody)
+  ) {
+    return Response.json(
+      { error: "Request body must be a JSON object." },
+      { status: 400 },
+    );
+  }
+
+  const body = parsedBody as ProjectInput;
   const name = typeof body.name === "string" ? body.name.trim() : "";
-  const description =
-    typeof body.description === "string" ? body.description.trim() : "";
+  if (body.description !== undefined && typeof body.description !== "string") {
+    return Response.json(
+      { error: "Description must be a string." },
+      { status: 400 },
+    );
+  }
+  const description = typeof body.description === "string" ? body.description.trim() : "";
 
   if (name.length < 2 || name.length > 60) {
     return Response.json(
