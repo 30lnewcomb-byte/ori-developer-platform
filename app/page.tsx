@@ -43,17 +43,17 @@ const workspaceAreas = [
 const capabilities = [
   {
     number: "01",
-    title: "Projects first",
-    text: "Keep application identity, ownership, and future environments together instead of scattering them across settings.",
+    title: "Project registry",
+    text: "Create and manage project records with ownership tied to your account.",
   },
   {
     number: "02",
-    title: "Clear access boundaries",
-    text: "Credentials and tools should have explicit owners, scopes, and lifecycles. A button should never hide what it can do.",
+    title: "Access controls",
+    text: "Credentials and tools need clear owners, scopes, and lifecycles. The interface should show what an action can access before you use it.",
   },
   {
     number: "03",
-    title: "Real operational context",
+    title: "Operational data",
     text: "Usage, model health, and activity should come from connected services—not sample numbers or decorative charts.",
   },
 ];
@@ -95,13 +95,11 @@ export default async function Home() {
             DEVELOPER WORKSPACE FOR ORI
           </div>
           <h1 id="landing-title">
-            Build with Ori.
-            <span>Keep the work in view.</span>
+            Manage Ori projects.
+            <span>See what is connected.</span>
           </h1>
           <p className="landingLead">
-            A dedicated workspace for organizing projects, connecting model
-            services, and managing the tools and access that power your
-            applications.
+            A developer workspace for managing project records and checking the state of API access, model connections, tools, and activity. Each area shows whether it is available, pending, or still in development.
           </p>
 
           <div className="landingHeroActions">
@@ -114,9 +112,9 @@ export default async function Home() {
           </div>
 
           <div className="landingHeroFootnote">
-            <span>Independent from Ori Platform</span>
+            <span>Separate from Ori Platform</span>
             <span className="landingFootnoteDivider" />
-            <span>Built around real integrations</span>
+            <span>Availability shown by feature</span>
           </div>
         </div>
 
@@ -124,7 +122,7 @@ export default async function Home() {
           <div className="landingPreviewTop">
             <div>
               <span className="landingPreviewEyebrow">WORKSPACE MAP</span>
-              <h2>Everything has a place.</h2>
+              <h2>Current workspace areas.</h2>
             </div>
             <span className="landingPreviewMark" aria-hidden="true">O</span>
           </div>
@@ -153,10 +151,9 @@ export default async function Home() {
       <section className="landingPlatformSection" id="platform" aria-labelledby="platform-title">
         <div className="landingSectionHeading">
           <span className="landingSectionKicker">THE PLATFORM</span>
-          <h2 id="platform-title">A workspace, not a pile of dashboards.</h2>
+          <h2 id="platform-title">Project records at the center.</h2>
           <p>
-            Projects provide the center. Access, models, tools, and activity
-            belong around the work they support.
+            Start with a project record. Its access settings, model connections, tools, and activity belong alongside it.
           </p>
         </div>
 
@@ -174,10 +171,9 @@ export default async function Home() {
       <section className="landingWorkflowSection" id="workflow" aria-labelledby="workflow-title">
         <div className="landingWorkflowIntro">
           <span className="landingSectionKicker">HOW IT FITS TOGETHER</span>
-          <h2 id="workflow-title">A clear path from project to production.</h2>
+          <h2 id="workflow-title">How project setup is intended to work.</h2>
           <p>
-            The platform is being built around a workflow developers can
-            understand, inspect, and control.
+            The current flow starts with a project record. Resource connections and activity views are being added as those services become available.
           </p>
         </div>
 
@@ -186,21 +182,21 @@ export default async function Home() {
             <span>01</span>
             <div>
               <h3>Organize a project</h3>
-              <p>Give an application a clear identity and owner.</p>
+              <p>Create a project record and assign its owner.</p>
             </div>
           </article>
           <article>
             <span>02</span>
             <div>
               <h3>Connect its resources</h3>
-              <p>Assign access and connect only the services the project needs.</p>
+              <p>Add API access, model services, and tools when those integrations are available.</p>
             </div>
           </article>
           <article>
             <span>03</span>
             <div>
               <h3>Understand what happened</h3>
-              <p>Use real activity and service data to inspect the work.</p>
+              <p>Inspect activity once the relevant service data is connected.</p>
             </div>
           </article>
         </div>
@@ -219,8 +215,8 @@ export default async function Home() {
       <section className="landingCallToAction" aria-labelledby="landing-cta-title">
         <div>
           <span className="landingSectionKicker">ORI DEVELOPER PLATFORM</span>
-          <h2 id="landing-cta-title">Your workspace starts here.</h2>
-          <p>Sign in to continue to your developer workspace.</p>
+          <h2 id="landing-cta-title">Open the developer workspace.</h2>
+          <p>Sign in to manage projects and review which developer features are available.</p>
         </div>
         <div className="landingHeroActions">
           <Link className="primaryButton large" href="/sign-in">Sign in</Link>
@@ -230,7 +226,7 @@ export default async function Home() {
 
       <footer className="landingFooter">
         <Link className="landingFooterBrand" href="/">ORI DEVELOPER PLATFORM</Link>
-        <span>A separate workspace for building with Ori.</span>
+        <span>Independent of the Ori chat workspace.</span>
         <a
           className="landingGithubLink"
           href="https://github.com/30lnewcomb-byte"
