@@ -1,5 +1,6 @@
 import { Suspense } from "react";
-import { UserProfile, auth, currentUser } from "@clerk/nextjs";
+import { UserProfile } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import WorkspaceShell from "../../../components/workspace-shell";
 
 export const dynamic = "force-dynamic";
