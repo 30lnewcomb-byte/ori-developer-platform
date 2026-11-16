@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Ori Developer Platform",
-  description: "Developer control plane for Ori.",
+  description: "Manage Ori project records and review the state of developer tools and integrations.",
 };
 
 export default function RootLayout({
