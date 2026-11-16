@@ -396,6 +396,20 @@ select:focus-visible {
 
 .landingPreviewDetail { display: none; }
 
+
+.landingPreviewDetail.setup,
+.landingCapabilityStatus.setup {
+  border-color: #6c5b3d;
+  background: rgba(153, 122, 68, .12);
+  color: #d9c49b;
+}
+.landingCapabilityStatus.development,
+.landingCapabilityStatus.pending {
+  border-color: #495b70;
+  background: rgba(90, 119, 151, .12);
+  color: #b6c9df;
+}
+
 .landingPreviewFooter {
   display: flex;
   align-items: center;
