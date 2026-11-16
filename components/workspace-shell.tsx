@@ -9,7 +9,7 @@ type WorkspaceShellProps = { activePath: string; title: string; identity: string
 
 const groups = [
   { label: "BUILD", items: [{ href: "/dashboard", label: "Overview", icon: "⌂" }, { href: "/projects", label: "Projects", icon: "◇" }] },
-  { label: "DEVELOP", items: [{ href: "/api", label: "API access", icon: "⌘" }, { href: "/models", label: "Models", icon: "◈" }, { href: "/tools", label: "Tools", icon: "□" }, { href: "/docs", label: "Documentation", icon: "▤" }] },
+  { label: "DEVELOP", items: [{ href: "/api", label: "API access", icon: "⌘" }, { href: "/models", label: "Models", icon: "◈" }, { href: "/tools", label: "Tools", icon: "□" }, { href: "/documentation", label: "Documentation", icon: "▤" }] },
   { label: "OBSERVE & MANAGE", items: [{ href: "/activity", label: "Activity", icon: "◷" }, { href: "/settings", label: "Settings", icon: "⚙" }] },
 ];
 
