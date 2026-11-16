@@ -89,6 +89,19 @@ Content-Type: application/json
 
 The response example uses placeholder values.
 
+## Error responses
+
+The Projects endpoints use these responses for expected failures:
+
+| HTTP status | Meaning | Common cause |
+|---:|---|---|
+| 400 | Invalid request | Malformed JSON, a non-object body, or a field outside its validation limits |
+| 401 | Authentication required | No valid signed-in Clerk session |
+| 409 | Project name conflict | The generated project slug already exists for this account |
+| 503 | Storage unavailable or not configured | Missing database connection, unapplied migration, or a database failure |
+
+Error responses include an `error` message. Database setup errors also include a stable `code` such as `DATABASE_NOT_CONFIGURED` or `PROJECTS_MIGRATION_REQUIRED`. Do not expose database credentials or raw provider errors to clients.
+
 ## Not available in this API version
 
 The repository does not currently implement endpoints for:
