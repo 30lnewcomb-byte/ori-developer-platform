@@ -7,35 +7,35 @@ const workspaceAreas = [
     number: "01",
     icon: "◇",
     name: "Projects",
-    description: "A home for the applications you build with Ori.",
+    description: "Create and manage project records for your applications.",
     detail: "Project workspace",
   },
   {
     number: "02",
     icon: "↗",
     name: "API access",
-    description: "A clear place for credentials, scopes, and request access.",
+    description: "Create API credentials and assign the scopes they can use.",
     detail: "In development",
   },
   {
     number: "03",
     icon: "◈",
     name: "Models",
-    description: "Understand which model services are connected and available.",
+    description: "Check which model services are connected and ready.",
     detail: "Connection pending",
   },
   {
     number: "04",
     icon: "□",
     name: "Tools",
-    description: "Review capabilities, permissions, and integration boundaries.",
+    description: "Review available tools and the permissions each one requires.",
     detail: "In development",
   },
   {
     number: "05",
     icon: "◷",
     name: "Activity",
-    description: "Follow real requests, changes, and operational events.",
+    description: "Inspect API requests, project changes, and service events.",
     detail: "Telemetry pending",
   },
 ];
@@ -121,7 +121,7 @@ export default async function Home() {
         <aside className="landingWorkspacePreview" aria-label="Developer workspace areas">
           <div className="landingPreviewTop">
             <div>
-              <span className="landingPreviewEyebrow">WORKSPACE MAP</span>
+              <span className="landingPreviewEyebrow">WORKSPACE AREAS</span>
               <h2>Current workspace areas.</h2>
             </div>
             <span className="landingPreviewMark" aria-hidden="true">O</span>
@@ -171,7 +171,7 @@ export default async function Home() {
       <section className="landingWorkflowSection" id="workflow" aria-labelledby="workflow-title">
         <div className="landingWorkflowIntro">
           <span className="landingSectionKicker">HOW IT FITS TOGETHER</span>
-          <h2 id="workflow-title">How project setup is intended to work.</h2>
+          <h2 id="workflow-title">The intended project workflow.</h2>
           <p>
             The current flow starts with a project record. Resource connections and activity views are being added as those services become available.
           </p>
