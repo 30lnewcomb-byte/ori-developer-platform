@@ -2048,3 +2048,40 @@ select:focus-visible {
   .apiDocsLink { align-items: flex-start; flex-direction: column; }
   .apiDocsLink a { min-height: 28px; }
 }
+
+
+/* Shared application states: loading, recovery, and missing routes */
+.systemStatePage {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 28px;
+  background: #10151c;
+  color: #e8eef5;
+}
+.systemStateCard {
+  display: flex;
+  width: min(100%, 520px);
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(24px, 5vw, 38px);
+  border: 1px solid #303b48;
+  border-radius: 13px;
+  background: #171e27;
+}
+.systemStateEyebrow { color: #8eafd4; font: 9px var(--font-mono); letter-spacing: .13em; }
+.systemStateCard h1 { margin: 22px 0 8px; color: #edf2f8; font: 600 clamp(25px, 4vw, 32px) var(--font-display); letter-spacing: -.04em; }
+.systemStateCard p { margin: 0 0 20px; color: #9baaba; font-size: 12px; line-height: 1.75; }
+.systemStateCard .primaryButton { display: inline-flex; align-items: center; justify-content: center; min-height: 39px; padding: 0 15px; border: 1px solid #54769b; border-radius: 7px; background: #29425e; color: #f2f7fd; font-size: 11px; text-decoration: none; cursor: pointer; }
+.systemStateCard .primaryButton:hover { border-color: #83a9d3; background: #345575; }
+.systemStateReference { margin-top: 16px; color: #77889a; font: 9px var(--font-mono); overflow-wrap: anywhere; }
+.systemLoadingCard { gap: 15px; }
+.systemLoadingBar, .systemLoadingLine { height: 10px; border-radius: 5px; background: #2b3745; }
+.systemLoadingBar { width: 68%; height: 23px; margin-top: 10px; }
+.systemLoadingLine { width: 100%; }
+.systemLoadingLine.short { width: 62%; }
+.systemLoadingCard p { margin: 5px 0 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .systemLoadingBar, .systemLoadingLine { animation: systemPulse 1.5s ease-in-out infinite alternate; }
+  @keyframes systemPulse { from { opacity: .55; } to { opacity: 1; } }
+}
