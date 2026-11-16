@@ -1,52 +1,38 @@
-# What Makes Ori Different
+# Why Ori Exists
 
-Ori began with a practical, personal goal: its creator wanted to use AI without needing to pay for access or provide a payment method just to get started.
+Ori started as a personal project. Its creator wanted to use AI without paying for access or providing a payment method just to get started. That led to an experiment in building a custom AI. The work later grew into several separate software and engineering projects.
 
-That goal still shapes the project. Ori is being developed as an independent AI ecosystem with an emphasis on access, ownership, transparency, and keeping costs as low as possible—not as a copy of an existing AI service.
+## Development spending
 
-## The reason Ori was started
+**The creator reports $0 in development spending to date.**
 
-The creator started Ori because they wanted to use AI for free. They did not want a wallet balance to manage, a subscription to maintain, or a payment method they had to hand over before they could use the AI they were building for themselves.
+This describes direct development spending, not the total value or operating cost of the resources used. Hardware, electricity, storage, bandwidth, hosting, and connectivity all use resources. Existing equipment, free tiers, and services provided at no charge can make a project possible without direct spending.
 
-In the creator's words, the original idea was simple: make AI they could use without paying for it or having to provide a payment method.
+The project aims to avoid required paid dependencies where a practical local, self-hosted, or free option is available. Any feature that does require payment or a payment method should be identified before users depend on it.
 
-This is the founding motivation, not a promise that every future hosted feature will always have zero operating cost or that every service in the ecosystem is currently available to everyone.
+## Engineering priorities
 
-## Development cost so far
+- **Access:** Keep the basic Ori experience usable without a required subscription or payment method wherever practical.
+- **Cost-aware infrastructure:** Prefer existing equipment, local execution, and free services when they meet the requirement.
+- **Separate responsibilities:** Ori Platform is the user-facing chat workspace. Ori Intelligence runs as a separate TensorFlow/Keras service. Ori Developer Platform provides developer project records and documentation. Ori Mechanic is an independent engineering project.
+- **Explicit boundaries:** Keep service credentials on the server. Define permissions before connecting tools or allowing controlled workflows.
+- **Accurate status:** Distinguish implemented behavior from setup requirements, disconnected services, and planned work.
 
-**The creator reports that Ori has cost nothing to develop so far: $0 in development spending.**
+These are project priorities, not a claim that every planned capability is already available. The applications and services have different release stages.
 
-That is an account of the project's development spending to date. It should not be confused with a guarantee that hosting, domains, storage, hardware, connectivity, or future third-party services can never cost money. Free tiers, donated resources, existing equipment, and usage limits can all affect the real cost of operating software.
+## What this does not promise
 
-Ori's direction is to avoid introducing paid dependencies when a practical free or self-hosted option will do, and to be clear whenever a feature does require a paid service, usage allowance, or payment method.
+Ori's starting goal does not mean that running AI has no resource cost, or that every future hosted feature can be provided for free and without limits. Compute, electricity, storage, bandwidth, and hosting still require resources even when the project can use equipment or services that are already available.
 
-## How Ori's goals differ
+If a future feature introduces a required cost or payment method, that requirement should be explained before someone relies on the feature.
 
-Many hosted AI products are designed around a provider-operated service: the provider runs the models and infrastructure, and users access them through subscriptions, usage-based billing, or an account connected to a payment method.
+## Current project status
 
-Ori is being built from a different starting point:
-
-- **Access before monetization.** The original use case was personal access to AI without a required payment method.
-- **Cost-conscious engineering.** Prefer existing resources, free tiers, local execution, and self-hosted components where they are suitable. Do not add paid APIs just because they are convenient.
-- **An ecosystem, not one chat screen.** Ori is a collection of distinct projects, including Ori Platform, Ori Developer Platform, and Ori Intelligence, with separate responsibilities.
-- **Creator-led development.** Ori is an independent project shaped around the creator's needs and priorities.
-- **Honest capability claims.** Clearly distinguish working features from experiments, integrations that need setup, and plans for the future.
-
-These are design goals and project principles. They do not mean that every other AI provider has the same pricing model, that every Ori feature is already complete, or that Ori can guarantee unlimited free compute.
-
-## What this does—and does not—promise
-
-Ori's founding goal is to make useful AI access possible without forcing the creator to provide a payment method. It is not a claim that running AI has no resource cost in general. Compute, electricity, storage, bandwidth, and hosting still require resources, even when those resources are already available or provided at no charge.
-
-As Ori grows, any feature that introduces a cost or requires a payment method should be identified clearly before users depend on it. The project should favor optional paid services over making a payment method a prerequisite for the basic experience wherever technically and financially practical.
-
-## Current status
-
-Ori is an actively developing project. Its individual applications and services have different levels of readiness. Consult the relevant product and service guides for implementation details:
+The projects are developed separately. Use their technical guides for current behavior and setup requirements:
 
 - [Ori Platform](ORI_PLATFORM.md)
 - [Ori Intelligence](ORI_INTELLIGENCE.md)
 - [Ori Developer Platform concepts](CONCEPTS.md)
 - [Developer Platform research notes](RESEARCH_NOTES.md)
 
-The central difference is the reason Ori exists: to build an AI ecosystem around practical access and cost-conscious independence, starting with one creator's wish to use AI without paying or supplying a payment method.
+The reason for building Ori is simple: to explore whether a useful AI workspace and the systems around it can be built with practical access, clear boundaries, and cost-conscious engineering.
