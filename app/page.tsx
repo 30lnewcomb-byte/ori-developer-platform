@@ -8,7 +8,8 @@ const workspaceAreas = [
     icon: "◇",
     name: "Projects",
     description: "Create and manage project records for your applications.",
-    detail: "Project workspace",
+    detail: "Available",
+    state: "available",
   },
   {
     number: "02",
@@ -16,13 +17,15 @@ const workspaceAreas = [
     name: "API access",
     description: "Planned: create API credentials and assign their scopes.",
     detail: "In development",
+    state: "development",
   },
   {
     number: "03",
     icon: "◈",
     name: "Models",
     description: "Planned: check which model services are connected and ready.",
-    detail: "Connection pending",
+    detail: "Not connected",
+    state: "pending",
   },
   {
     number: "04",
@@ -30,13 +33,15 @@ const workspaceAreas = [
     name: "Tools",
     description: "Planned: review tools and the permissions each one requires.",
     detail: "In development",
+    state: "development",
   },
   {
     number: "05",
     icon: "◷",
     name: "Activity",
     description: "Planned: inspect API requests, project changes, and service events.",
-    detail: "Telemetry pending",
+    detail: "Not connected",
+    state: "pending",
   },
 ];
 
@@ -45,16 +50,22 @@ const capabilities = [
     number: "01",
     title: "Project registry",
     text: "Create and manage project records with ownership tied to your account.",
+    status: "Available",
+    statusClass: "available",
   },
   {
     number: "02",
     title: "Access controls",
     text: "Credentials and tools need clear owners, scopes, and lifecycles. The interface should show what an action can access before you use it.",
+    status: "Planned",
+    statusClass: "planned",
   },
   {
     number: "03",
     title: "Operational data",
     text: "Usage, model health, and activity should come from connected services—not sample numbers or decorative charts.",
+    status: "Planned",
+    statusClass: "planned",
   },
 ];
 
@@ -79,6 +90,7 @@ export default async function Home() {
           <a href="#platform">Platform</a>
           <a href="#workflow">Workflow</a>
           <a href="#principles">Principles</a>
+          <a href="https://ori-platform.vercel.app" target="_blank" rel="noopener noreferrer">Ori Platform ↗</a>
           <Link href="/docs">Documentation</Link>
         </nav>
 
@@ -96,10 +108,10 @@ export default async function Home() {
           </div>
           <h1 id="landing-title">
             Manage Ori projects.
-            <span>See what is connected.</span>
+            <span>Know what is ready.</span>
           </h1>
           <p className="landingLead">
-            A developer workspace for managing project records and checking the state of API access, model connections, tools, and activity. Each area shows whether it is available, pending, or still in development.
+            A developer workspace for managing project records and understanding which tools and integrations are available today. Areas still being built or waiting for a connection are labeled clearly.
           </p>
 
           <div className="landingHeroActions">
@@ -122,7 +134,7 @@ export default async function Home() {
           <div className="landingPreviewTop">
             <div>
               <span className="landingPreviewEyebrow">WORKSPACE AREAS</span>
-              <h2>Current workspace areas.</h2>
+              <h2>What is available today.</h2>
             </div>
             <span className="landingPreviewMark" aria-hidden="true">O</span>
           </div>
@@ -136,22 +148,22 @@ export default async function Home() {
                   <strong>{area.name}</strong>
                   <small>{area.description}</small>
                 </span>
-                <span className="landingPreviewDetail">{area.detail}</span>
+                <span className={`landingPreviewDetail ${area.state}`}>{area.detail}</span>
               </div>
             ))}
           </div>
 
           <div className="landingPreviewFooter">
             <span className="landingPreviewFooterDot" />
-            Capabilities are shown as they are connected and verified.
+            Working areas are distinguished from features still in development.
           </div>
         </aside>
       </section>
 
       <section className="landingPlatformSection" id="platform" aria-labelledby="platform-title">
         <div className="landingSectionHeading">
-          <span className="landingSectionKicker">THE PLATFORM</span>
-          <h2 id="platform-title">Project records at the center.</h2>
+          <span className="landingSectionKicker">CURRENT IMPLEMENTATION</span>
+          <h2 id="platform-title">Project records are the starting point.</h2>
           <p>
             Start with a project record. Its access settings, model connections, tools, and activity belong alongside it.
           </p>
@@ -160,7 +172,10 @@ export default async function Home() {
         <div className="landingCapabilityList">
           {capabilities.map((item) => (
             <article className="landingCapability" key={item.number}>
-              <span className="landingCapabilityNumber">{item.number}</span>
+              <div className="landingCapabilityTop">
+                <span className="landingCapabilityNumber">{item.number}</span>
+                <span className={`landingCapabilityStatus ${item.statusClass}`}>{item.status}</span>
+              </div>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </article>
@@ -232,7 +247,7 @@ export default async function Home() {
           href="https://github.com/30lnewcomb-byte"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Visit my GitHub profile"
+          aria-label="Visit Ori on GitHub"
           title="GitHub profile"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
