@@ -89,7 +89,7 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
             <div><strong>Projects API · implemented</strong><p>These endpoints are available to signed-in users when the Neon Projects migration and database connection are configured.</p></div>
           </section>
           <section className="apiEndpointSection">
-            <div className="apiSectionHeading"><div><h2>Available endpoints</h2><p>Current HTTP routes in this repository.</p></div><span>API SURFACE · V1</span></div>
+            <div className="apiSectionHeading"><div><h2>Available endpoints</h2><p>Current HTTP routes in this repository.</p></div><span>2 ENDPOINTS</span></div>
             <article className="apiEndpointCard">
               <div className="apiEndpointHeader"><span className="apiMethod get">GET</span><code>/api/projects</code><span className="apiEndpointPurpose">List your projects</span></div>
               <p>Returns up to 100 project records owned by your signed-in account, newest first. No query parameters are supported yet.</p>
