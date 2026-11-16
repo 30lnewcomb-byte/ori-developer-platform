@@ -12,12 +12,12 @@ const pages: Record<string, {
   dashboard: {
     title: "Overview",
     subtitle: "Your Ori developer workspace",
-    description: "A single place to manage projects, intelligence, tools, and the services that power Ori.",
+    description: "Manage project records and review the implementation state of developer services.",
     items: [
-      { title: "Projects", description: "Organize applications and environments that use Ori.", status: "Not connected" },
-      { title: "API access", description: "Create and manage scoped credentials after secure key storage is configured.", status: "Not configured" },
+      { title: "Projects", description: "Create and manage project records under your account. Database setup is required.", status: "Setup required" },
+      { title: "API access", description: "Scoped API credentials are still being implemented.", status: "In development" },
       { title: "Model services", description: "View model availability and routing across connected runtimes.", status: "Not connected" },
-      { title: "Tools", description: "Review available capabilities and their permission boundaries.", status: "Not connected" },
+      { title: "Tools", description: "The tool registry and permission controls are still being implemented.", status: "In development" },
     ],
   },
   projects: {
@@ -122,8 +122,8 @@ export default async function SectionPage({
             <div className="consoleWelcome">
               <div className="consoleWelcomeMark">O</div>
               <div>
-                <strong>Your workspace is ready to be connected.</strong>
-                <p>Sign-in is working. Runtime services, project storage, and live telemetry have not been connected to this dashboard yet.</p>
+                <strong>Project records are implemented; other services are not connected yet.</strong>
+                <p>Project storage requires the Neon migration. API access and tools are still in development; model and activity data are not connected.</p>
               </div>
               <span className="consoleStatusPill">SETUP INCOMPLETE</span>
             </div>
@@ -154,7 +154,7 @@ export default async function SectionPage({
               <div>
                 <div className="consoleEyebrow">FOUNDATION</div>
                 <h2>What comes next</h2>
-                <p>Connect the platform to real services before showing live status or allowing sensitive actions.</p>
+                <p>Finish database setup, then implement each integration before showing live data or enabling sensitive actions.</p>
               </div>
               <div className="consoleStepList">
                 <div><span>01</span><strong>Persistent project data</strong><small>Database and project ownership</small></div>
