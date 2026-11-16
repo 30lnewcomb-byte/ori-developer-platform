@@ -8,8 +8,8 @@ const workspaceAreas = [
     icon: "◇",
     name: "Projects",
     description: "Create and manage project records for your applications.",
-    detail: "Available",
-    state: "available",
+    detail: "Setup required",
+    state: "setup",
   },
   {
     number: "02",
@@ -50,22 +50,22 @@ const capabilities = [
     number: "01",
     title: "Project registry",
     text: "Create and manage project records with ownership tied to your account.",
-    status: "Available",
-    statusClass: "available",
+    status: "Setup required",
+    statusClass: "setup",
   },
   {
     number: "02",
     title: "Access controls",
     text: "Scoped API credentials and tool permissions are not available yet.",
-    status: "Planned",
-    statusClass: "planned",
+    status: "In development",
+    statusClass: "development",
   },
   {
     number: "03",
     title: "Operational data",
     text: "Usage, model health, and activity data are not connected to this workspace yet.",
-    status: "Planned",
-    statusClass: "planned",
+    status: "Not connected",
+    statusClass: "pending",
   },
 ];
 
@@ -134,7 +134,7 @@ export default async function Home() {
           <div className="landingPreviewTop">
             <div>
               <span className="landingPreviewEyebrow">WORKSPACE AREAS</span>
-              <h2>What is available today.</h2>
+              <h2>Current implementation status.</h2>
             </div>
             <span className="landingPreviewMark" aria-hidden="true">O</span>
           </div>
