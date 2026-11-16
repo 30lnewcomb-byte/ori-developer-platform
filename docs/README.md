@@ -9,7 +9,7 @@ This guide describes the platform as it exists today. It separates implemented b
 - [Quickstart](QUICKSTART.md) — run the web application locally and open your workspace.
 - [Workspace guide](WORKSPACE.md) — understand public routes, sign-in, workspace navigation, and what each section actually does.
 - [Platform concepts](CONCEPTS.md) — understand projects, ownership, and future resource boundaries.
-- [What makes Ori different](WHAT_MAKES_ORI_DIFFERENT.md) — the project's founding motivation, cost philosophy, and how its goals differ from many hosted AI services.
+- [Why Ori exists](WHAT_MAKES_ORI_DIFFERENT.md) — the project's founding motivation, cost philosophy, and how its goals differ from many hosted AI services.
 - [Authentication and security](AUTHENTICATION.md) — sign-in behavior and server-side authorization.
 - [Security model](SECURITY.md) — trust boundaries, secrets, isolation, and requirements for future API credentials.
 - [API reference](API_REFERENCE.md) — the currently implemented HTTP API contract.
