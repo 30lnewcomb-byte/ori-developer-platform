@@ -20,8 +20,8 @@ export default async function ProjectsPage() {
               <div className="consoleEyebrow">ORI DEVELOPER PLATFORM</div>
               <h1>Projects</h1>
               <p className="consoleSubtitle">
-                Organize the applications and environments that connect to Ori.
-                Each project belongs to your account.
+                Create and manage project records for applications that use Ori.
+                Each record is private to your account.
               </p>
             </div>
           </div>
